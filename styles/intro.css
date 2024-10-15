@@ -1,49 +1,53 @@
 .intro{
-    margin-left: 150px;
-    margin-top: 150px;
-    z-index: 99;
-    background-color: lightblue;
-    color: white;
-    height: 650px;
-    width: 1250px;
-    position: relative;
+  margin-left: 150px;
+  margin-top: 150px;
+  z-index: 99;
+  background-color: lightblue;
+  color: black;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .greeting{
-    display: inline-block;
-    position: absolute;
-    top: -30px;
-    font-size: 25px;
+  display: inline-block;
+  position: absolute;
+  top: -30px;
+  font-size: 25px;
 }
 
 .name{
-    position: absolute;
-    display: block;
-    font-size: 50px;
-    top: 50px;
-    left: 30px;
+  position: absolute;
+  display: block;
+  font-size: 50px;
+  top: 150px;
+  left: 300px;
 }
 
 .intro-left-section{
-    display: inline-block;
-    position: absolute;
-    top: 150px;
-    left: 50px;
+  display: inline-block;
+  position: absolute;
+  top: 250px;
+  left: 350px;
 }
 
 .get-in-touch-button{
-    display: inline-block;
-    position: absolute;
-    top: 200px;
+  display: inline-block;
+  position: absolute;
+  top: 200px;
+  left: 320px;
+  white-space: nowrap;
 }
 
 .intro-right-section{
-    display: inline-block;
-    position: absolute;
-    right: 100px;
-    top: 200px;
+  display: inline-block;
+  position: absolute;
+  right: 150px;
+  top: 250px;
 }
 
 .intro-right-section img{
-    width: 200px;
+  width: 200px;
 }

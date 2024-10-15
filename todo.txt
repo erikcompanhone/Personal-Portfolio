@@ -1,0 +1,14 @@
+finish index page layout
+    missing resizing options/ positions/background color
+
+figure out how to link index buttons
+
+work on resume page layout
+
+work on about page layout
+
+work on projects page layout
+
+work on contact page layout
+
+work on styling
