@@ -1,53 +1,48 @@
 .intro{
-  margin-left: 150px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px; 
+  margin-right: 100px;
   margin-top: 150px;
-  z-index: 99;
-  background-color: lightblue;
-  color: black;
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  background-color: lightseagreen;
 }
 
 .greeting{
-  display: inline-block;
-  position: absolute;
-  top: -30px;
   font-size: 25px;
 }
 
 .name{
-  position: absolute;
-  display: block;
+  text-align: center;
   font-size: 50px;
-  top: 150px;
-  left: 300px;
+}
+
+.intro-content{
+  display: flex;
+  justify-content: space-between;
 }
 
 .intro-left-section{
-  display: inline-block;
-  position: absolute;
-  top: 250px;
-  left: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin-right: 20px;
 }
 
 .get-in-touch-button{
-  display: inline-block;
-  position: absolute;
-  top: 200px;
-  left: 320px;
   white-space: nowrap;
+  width: 100px;
 }
 
 .intro-right-section{
-  display: inline-block;
-  position: absolute;
-  right: 150px;
-  top: 250px;
+  flex: 1;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
 }
 
 .intro-right-section img{
-  width: 200px;
+  width: 100%;
+  height: auto;
 }

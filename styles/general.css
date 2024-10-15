@@ -1,0 +1,15 @@
+p{
+  margin: 0px;
+}
+  
+body{
+  margin: 0px;
+  background-color: lightblue;
+  font-family: Roboto, Arial;
+}
+
+main {
+  margin-left: 0px; /* Space for sidebar */
+  margin-top: 50px; /* Space for header */
+  padding: 20px; /* Padding around main content */
+}
