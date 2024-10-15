@@ -1,0 +1,9 @@
+.intro{
+    margin-left: 150px;
+    margin-top: 150px;
+    z-index: 99;
+    background-color: lightblue;
+    color: white;
+    height: 650px;
+    width: 1250px;
+}
