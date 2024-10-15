@@ -5,6 +5,8 @@
   margin-right: 100px;
   margin-top: 150px;
   background-color: lightseagreen;
+  padding: 20px;
+  min-width: 300px;
 }
 
 .greeting{
@@ -48,6 +50,6 @@
 }
 
 .intro-right-section img{
-  width: 100%;
+  width: 50%;
   height: auto;
 }
