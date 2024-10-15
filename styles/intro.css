@@ -14,6 +14,7 @@
 .name{
   text-align: center;
   font-size: 50px;
+  margin-bottom: 50px;
 }
 
 .intro-content{
@@ -24,13 +25,17 @@
 .intro-left-section{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   flex: 1;
   margin-right: 20px;
 }
 
+.short-intro{
+  margin-top: 50px;
+}
+
 .get-in-touch-button{
+  margin-top: 100px;
   white-space: nowrap;
   width: 100px;
 }
