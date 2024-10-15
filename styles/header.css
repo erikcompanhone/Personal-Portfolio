@@ -12,19 +12,19 @@
   left: 0px;
 }
 
-.left-section{
+.header-left-section{
   margin-left: 50px;
   display: flex;
   align-items: center;
   font-size: 20px;
 }
 
-.left-section img{
+.header-left-section img{
   width: 50px;
   margin-right: 30px;
 }
 
-.right-section{
+.header-right-section{
   margin-right: 50px;
   display: flex;
   align-items: center;

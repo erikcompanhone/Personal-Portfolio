@@ -6,4 +6,44 @@
     color: white;
     height: 650px;
     width: 1250px;
+    position: relative;
+}
+
+.greeting{
+    display: inline-block;
+    position: absolute;
+    top: -30px;
+    font-size: 25px;
+}
+
+.name{
+    position: absolute;
+    display: block;
+    font-size: 50px;
+    top: 50px;
+    left: 30px;
+}
+
+.intro-left-section{
+    display: inline-block;
+    position: absolute;
+    top: 150px;
+    left: 50px;
+}
+
+.get-in-touch-button{
+    display: inline-block;
+    position: absolute;
+    top: 200px;
+}
+
+.intro-right-section{
+    display: inline-block;
+    position: absolute;
+    right: 100px;
+    top: 200px;
+}
+
+.intro-right-section img{
+    width: 200px;
 }
