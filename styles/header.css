@@ -32,11 +32,13 @@
   align-items: center;
 }
 
-.resume,
-.about,
-.projects,
-.contact{
+.resume-link,
+.about-link,
+.projects-link,
+.contact-link{
   font-size: 20px;
   margin-left: 10px;
   margin-right: 10px;
+  text-decoration: none;
+  color: black;
 }

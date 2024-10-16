@@ -40,7 +40,11 @@
   margin-top: 100px;
   white-space: nowrap;
   width: 100px;
-  border-radius: 2px;
+  border: 1 solid 2px;
+}
+
+.get-in-touch-button:focus, .get-in-touch-button:active {
+  outline: none;
 }
 
 .intro-right-section{

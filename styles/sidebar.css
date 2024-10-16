@@ -10,12 +10,15 @@
 
 .sidebar-link{
   height: 100px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin-bottom: 10px;
   background-color: lightcyan;
+  text-decoration: none;
+  color: black;
 }
   
 .sidebar-link img{
@@ -26,4 +29,9 @@
 .sidebar-link:hover{
   background-color: rgb(235, 235, 235);
   cursor: pointer;
+}
+
+.sidebar-link div{
+  text-align: center;
+  font-size: 12px;
 }
