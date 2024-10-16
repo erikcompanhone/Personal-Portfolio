@@ -35,7 +35,8 @@
 .resume-link,
 .about-link,
 .projects-link,
-.contact-link{
+.contact-link,
+.index-link{
   font-size: 20px;
   margin-left: 10px;
   margin-right: 10px;

@@ -1,0 +1,15 @@
+.intro{
+    display: flex;
+    justify-content: center;
+    margin-left: 200px; 
+    margin-right: 100px;
+    margin-top: 150px;
+    background-color: lightseagreen;
+    padding: 20px;
+    min-width: 300px;
+}
+
+.pdf{
+    width: 1000px;
+    height: 1000px;
+}
