@@ -1,0 +1,45 @@
+.intro{
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px; 
+  margin-right: 100px;
+  margin-top: 150px;
+  background-color: lightseagreen;
+  padding: 20px;
+  min-width: 300px;
+}
+
+.contact-card{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-card-title{
+  background-color: rgb(24, 126, 121);
+  font-size: 50px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid grey;
+}
+
+.contact-card-info{
+  background-color: lightseagreen;
+  font-size: 20px;
+}
+
+.contact-card-ending{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.contact-card-info li {
+  margin-bottom: 10px;
+}
+
+.contact-card-info a {
+  color: black;
+  text-decoration: none;
+}

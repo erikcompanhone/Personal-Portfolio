@@ -1,5 +1,3 @@
-work on resume page layout
-
 work on about page layout
 
 work on projects page layout
