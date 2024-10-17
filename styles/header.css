@@ -43,3 +43,11 @@
   text-decoration: none;
   color: black;
 }
+
+.resume-link:hover,
+.about-link:hover,
+.projects-link:hover,
+.contact-link:hover,
+.index-link:hover{
+  background-color: rgb(238, 238, 139);
+}

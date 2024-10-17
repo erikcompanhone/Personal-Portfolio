@@ -1,5 +1,3 @@
-work on projects page layout
-
 fill in with actual information
 
 work on styling
