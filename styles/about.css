@@ -39,6 +39,10 @@ margin-bottom: 20px;
 font-size: 25px;
 }
 
+.about-info-intro p{
+  margin-bottom: 15px;
+}
+
 .about-info-languages{
   margin-bottom: 20px;
   font-size: 25px;
