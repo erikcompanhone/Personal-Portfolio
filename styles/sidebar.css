@@ -6,6 +6,9 @@
   left: 0px;
   z-index: 200;
   width: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .sidebar-link{
@@ -15,7 +18,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   background-color: lightcyan;
   text-decoration: none;
   color: black;
