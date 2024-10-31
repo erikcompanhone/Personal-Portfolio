@@ -56,8 +56,9 @@ main{
 }
 
 .project-picture img{
-  width: 50%;
+  width: 75%;
   height: auto;
+  border-radius: 5px;
 }
 
 .project-info{
@@ -80,6 +81,10 @@ main{
 
 .project-description{
   margin-top:20px;
+}
+
+.project-description p{
+  margin-top: 10px;
 }
 
 .project-link{
