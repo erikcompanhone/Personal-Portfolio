@@ -19,16 +19,11 @@
 }
 
 .pdf-container{
-  padding-bottom: 56.25%;
-  overflow: hidden;
   max-width: 100%;
 }
 
-.pdf-container iframe{
-  position: absolute;
-  top: 50;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+.download-button{
+  margin-top: 20px;
+  text-decoration: none;
+  color: black;
 }

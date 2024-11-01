@@ -77,10 +77,19 @@
         <div class="resume-title">
           My Resume:
         </div>
+        
         <div class="pdf-container">
-          <iframe src= "files/RESUME updated oct 2024 - POSTGRAD.pdf"></iframe>
+          <div id="pdf-viewer"></div>
         </div>
+        <a href="files/RESUME - updated NOV 2024.pdf" download="RESUME - updated NOV 2024.pdf" class="download-button">
+          Download Resume
+        </a>
       </section>
     </main>
+
+     <!-- PDF.js library -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+     <!-- link javascript -->
+     <script src="scripts/pdf-viewer.js"></script>
   </body>
 </html>
