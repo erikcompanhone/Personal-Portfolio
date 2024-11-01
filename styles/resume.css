@@ -18,10 +18,18 @@
   margin-bottom: 50px;
 }
 
-.pdf-container{
-  max-width: 100%;
+.pdf-container {
+  position: relative;
+  width: 60%;  /* Make sure it takes full width */
+  height: auto; /* Allow height to adjust */
+  max-width: 100%; /* Prevent overflow */
+  overflow: hidden;
 }
 
+.pdf-container canvas {
+  width: 100%; /* Ensure canvas fits container */
+  height: auto; /* Maintain aspect ratio */
+}
 .download-button{
   margin-top: 20px;
   text-decoration: none;
