@@ -31,8 +31,11 @@
   height: auto;
 }
 
-.download-button{
+.download-button {
   margin-top: 20px;
   text-decoration: none;
-  color: black;
+  color: white;
+  background-color: darkcyan; 
+  padding: 10px 20px;
+  border-radius: 5px; 
 }

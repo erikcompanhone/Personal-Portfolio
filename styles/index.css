@@ -37,9 +37,11 @@
 
 .get-in-touch-button{
   margin-top: 100px;
-  white-space: nowrap;
-  width: 100px;
-  border: 1 solid 2px;
+  text-decoration: none;
+  color: white;
+  background-color: darkcyan; 
+  padding: 10px 20px;
+  border-radius: 5px; 
 }
 
 .get-in-touch-button:focus, .get-in-touch-button:active {
