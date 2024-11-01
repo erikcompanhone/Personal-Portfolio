@@ -3,8 +3,8 @@ main{
   flex-direction: column;
   margin-left: 200px; 
   margin-right: 100px;
-  margin-top: 150px;
-  background-color: lightseagreen;
+  margin-top: 220px;
+  background-color: rgb(240, 240, 240);
   padding: 20px;
   min-width: 300px;
 }
@@ -56,9 +56,10 @@ main{
 }
 
 .project-picture img{
-  width: 75%;
+  width: 100%;
   height: auto;
   border-radius: 5px;
+  background-color: white;
 }
 
 .project-info{

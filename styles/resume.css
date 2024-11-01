@@ -15,14 +15,13 @@
   border-bottom: 1px solid grey;
   padding-bottom:20px;
   font-size: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .pdf-container{
   padding-bottom: 56.25%;
   overflow: hidden;
   max-width: 100%;
-  margin: 50px;
 }
 
 .pdf-container iframe{
