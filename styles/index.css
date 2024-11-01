@@ -32,7 +32,12 @@
 }
 
 .short-intro{
-  margin-top: 50px;
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.short-intro p{
+  margin-top: 10px;
 }
 
 .get-in-touch-button{
