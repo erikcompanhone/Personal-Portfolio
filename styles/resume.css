@@ -6,7 +6,6 @@
   margin-left: 200px; 
   margin-right: 100px;
   margin-top: 150px;
-  background-color: lightseagreen;
   padding: 20px;
   min-width: 300px;
   position: relative;
@@ -16,14 +15,13 @@
   border-bottom: 1px solid grey;
   padding-bottom:20px;
   font-size: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .pdf-container{
   padding-bottom: 56.25%;
   overflow: hidden;
   max-width: 100%;
-  margin: 50px;
 }
 
 .pdf-container iframe{
@@ -32,6 +30,5 @@
   left: 0;
   width: 100%;
   height: 100%;
-  
   border: none;
 }
