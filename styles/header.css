@@ -1,5 +1,5 @@
 .header{
-  background-color: lightgreen;
+  background-color: rgb(255, 255, 255);
   height: 110px;
   display: flex;
   flex-direction: row;
@@ -38,8 +38,8 @@
 .contact-link,
 .index-link{
   font-size: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   text-decoration: none;
   color: black;
 }
@@ -49,5 +49,6 @@
 .projects-link:hover,
 .contact-link:hover,
 .index-link:hover{
-  background-color: rgb(238, 238, 139);
+  transition: color 0.15s;
+  color: rgb(61, 61, 61);
 }
