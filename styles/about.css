@@ -32,6 +32,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  margin-top: 50px;
 }
 
 .about-info-languages{
@@ -53,10 +54,10 @@
   flex: 1;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
 }
 
 .about-info-right img{
-  margin-top: 50px;
   border-radius: 5px;
   width: 50%;
   height: auto;
