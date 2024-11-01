@@ -11,6 +11,10 @@ loadingTask.promise.then(function(pdf) {
     console.log('Page loaded');
 
     var scale = 1.5;
+    if (window.innerWidth < 600) { 
+      scale = 2; 
+    }
+    
     var viewport = page.getViewport({ scale: scale });
 
     var canvas = document.createElement('canvas');
