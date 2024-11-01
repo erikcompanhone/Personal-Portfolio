@@ -22,7 +22,7 @@
   position: relative;
   width: 100%;  
   height: auto; 
-  max-width: 600px; 
+  max-width: 800px; 
   overflow: hidden;
 }
 
@@ -32,10 +32,15 @@
 }
 
 .download-button {
-  margin-top: 20px;
-  text-decoration: none;
-  color: white;
-  background-color: darkcyan; 
-  padding: 10px 20px;
-  border-radius: 5px; 
+  display: inline-block;          
+  margin-top: 20px;              
+  padding: 5px 10px 5px 10px;            
+  color: black;          
+  text-decoration: none;         
+  border-radius: 3px;           
+  border: 1px solid black;
+}
+
+.download-button:hover {
+  background-color: rgb(223, 223, 223);
 }

@@ -12,7 +12,7 @@ loadingTask.promise.then(function(pdf) {
 
     var scale = 1.5;
     if (window.innerWidth < 600) { 
-      scale = 3; 
+      scale = 2; 
     }
 
     var viewport = page.getViewport({ scale: scale });
