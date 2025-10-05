@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookIcon, HeartIcon, MusicIcon, CameraIcon, GlobeIcon, UsersIcon } from 'lucide-react';
+import { BookIcon, HeartIcon, MusicIcon, GlobeIcon, UsersIcon } from 'lucide-react';
 
 const Personal: React.FC = () => {
   const hobbies = [
@@ -9,43 +9,45 @@ const Personal: React.FC = () => {
       icon: <BookIcon size={24} className="text-accent" />
     },
     {
-      name: 'Hiking',
-      description: 'Exploring nature trails and mountains',
+      name: 'Music',
+      description: (
+        <span>
+          Playing guitar, collecting vinyl, and sharing covers on{' '}
+          <a
+            href="https://www.youtube.com/@EAlmeida2712"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-accent"
+          >
+            YouTube
+          </a>
+        </span>
+      ),
+      icon: <MusicIcon size={24} className="text-accent" />
+    },
+    {
+      name: 'DnD Campaign Design & Gaming',
+      description: 'Worldbuilding, narrative design, and strategy across tabletop RPGs & systems-driven video games',
       icon: <GlobeIcon size={24} className="text-accent" />
     },
     {
-      name: 'Photography',
-      description: 'Landscape and street photography',
-      icon: <CameraIcon size={24} className="text-accent" />
+      name: 'Skateboarding',
+      description: 'Practicing balance, persistence, and progression outdoors',
+      icon: <GlobeIcon size={24} className="text-accent" />
     },
-    {
-      name: 'Music',
-      description: 'Playing guitar and attending concerts',
-      icon: <MusicIcon size={24} className="text-accent" />
-    }
+    
   ];
 
   const volunteering = [
     {
-      organization: 'Code for Good',
-      role: 'Volunteer Developer',
-      period: '2020 - Present',
-      description:
-        'Developing websites and applications for non-profit organizations that focus on environmental conservation.'
-    },
-    {
-      organization: 'Tech Mentors',
-      role: 'Mentor',
-      period: '2019 - Present',
-      description:
-        'Mentoring underprivileged students interested in pursuing careers in technology.'
-    },
-    {
-      organization: 'Local Food Bank',
+      organization: 'Bezerra de Menezes Community Center',
       role: 'Volunteer',
-      period: '2018 - 2020',
-      description:
-        'Assisted with food distribution and organization of donations.'
+      period: '2020 – 2022',
+      bullets: [
+        'Led and contributed to three service-learning food pantry projects improving distribution flow and organization.',
+        'Coordinated small volunteer groups to divide tasks (intake, sorting, packing) and reduce bottlenecks.',
+        'Developed communication, reliability, and community-focused problem solving through consistent participation.'
+      ]
     }
   ];
 
@@ -83,7 +85,13 @@ const Personal: React.FC = () => {
                 <span className="hidden sm:block">•</span>
                 <span>{item.period}</span>
               </div>
-              <p className="text-muted">{item.description}</p>
+              {item.bullets && (
+                <ul className="list-disc list-inside space-y-1 text-muted text-sm">
+                  {item.bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>

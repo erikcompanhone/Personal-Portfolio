@@ -15,7 +15,6 @@ education:
 add actual content
 
 personal:
-add actual content
 
 resume:
 make print and download buttons work/add a resume file to assets for download
