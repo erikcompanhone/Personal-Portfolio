@@ -89,14 +89,15 @@ const legacy: RawProject[] = [
   // Future highlight placeholder
   {
     rawTitle: 'Kitchen Chaos',
-    title: 'Kitchen Chaos (Planned)',
+    title: 'Kitchen Chaos',
     short: 'Unity cooking game – WebGL build upcoming.',
     description: [
       'Unity-based single-player cooking management game inspired by Overcooked.',
       'Focus on timing, asset management, and gameplay loop; WebGL optimization pending.'
     ],
     tech: ['Unity', 'C#'],
-    image: 'kitchen-chaos.jpg',
+  image: 'Kitchen Chaos.jpg',
+    repo: 'https://github.com/erikcompanhone/KitchenChaos.git',
     category: 'game',
     status: 'upcoming',
     importance: 4.5
@@ -266,6 +267,7 @@ const legacy: RawProject[] = [
       'Baseline implementation informing architecture & performance improvements in V2.'
     ],
     tech: ['JavaScript', 'React'],
+    repo: 'https://github.com/erikcompanhone/GameRecommender.git',
     image: 'game-reccomender.png',
     category: 'web',
     importance: 3
