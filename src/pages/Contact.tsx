@@ -76,7 +76,10 @@ const Contact: React.FC = () => {
             throw new Error(data.error || 'Server error');
         }
         setToast({ type: 'success', msg: 'Message sent successfully!' });
+        // Clear form inputs after success
         setFormData({ name: '', email: '', subject: '', message: '' });
+        // Reset touched state so empty cleared fields don't show validation errors
+        setTouched({});
       })
       .catch(err => {
         if (err.message === 'handled') return; // already surfaced
