@@ -31,6 +31,7 @@ const Skills: React.FC = () => {
   const toolsTech = [
     { name: 'Android Studio', level: 5 },
     { name: 'Vercel', level: 4 },
+    { name: 'Jest', level: 3 },
     { name: 'Docker', level: 3 },
     { name: 'Unity', level: 3 },
     { name: 'Web3.js', level: 2 },

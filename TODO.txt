@@ -3,8 +3,7 @@ add actual content
 deploy top 4 projects and update live links
 
 everything else:
-jest
-ci/cd simple pipeline
+jest and ci/cd simple pipeline
 update headshot
 update resume file here
 update headshot to match everywhere else
