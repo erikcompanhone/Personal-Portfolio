@@ -58,6 +58,7 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({ name, icon, level = 0, logoOver
                 alt={name}
                 className="w-full h-full object-contain p-1"
                 loading="lazy"
+                decoding="async"
                 onError={handleImgError}
               />
             ) : (

@@ -17,17 +17,23 @@ const ProjectCard: React.FC<ProjectProps> = ({
   tags,
   liveUrl,
   githubUrl
-}) => {
+}: ProjectProps) => {
   return (
     <div className="bg-primary rounded-lg overflow-hidden shadow-lg transition-transform hover:translate-y-[-5px] duration-300">
       <div className="h-48 overflow-hidden">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover"
+          decoding="async"
+          loading="lazy"
+        />
       </div>
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
         <p className="text-muted mb-4">{description}</p>
         <div className="flex flex-wrap gap-2 mb-6">
-          {tags.map((tag, index) => (
+          {tags.map((tag: string, index: number) => (
             <span key={index} className="px-3 py-1 bg-secondary text-sm rounded-full">
               {tag}
             </span>

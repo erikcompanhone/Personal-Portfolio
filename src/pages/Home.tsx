@@ -37,9 +37,13 @@ const Home: React.FC = () => {
   <div className="order-2 md:order-2 md:w-1/2 flex justify-center mb-6 md:mb-0 md:mt-8 lg:mt-12">
           <div className="w-64 h-64 rounded-full bg-accent bg-opacity-10 overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=70"
+              srcSet="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=70 400w, https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=70 1200w"
+              sizes="(max-width: 768px) 256px, 256px"
               alt="Erik Companhone"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover select-none"
+              decoding="async"
+              loading="lazy"
             />
           </div>
         </div>

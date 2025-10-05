@@ -9,8 +9,8 @@ const Contact: React.FC = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [submitError, setSubmitError] = useState('');
+  // Toast state
+  const [toast, setToast] = useState<{ type: 'success' | 'error'; msg: string } | null>(null);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [botField, setBotField] = useState(''); // honeypot
 
@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitError('');
+  setToast(null);
 
     if (botField) {
       // silently ignore bot submissions
@@ -46,27 +46,48 @@ const Contact: React.FC = () => {
     }
 
     if (!formValid) {
-      setSubmitError('Please correct the highlighted fields before sending.');
+      setToast({ type: 'error', msg: 'Please correct the highlighted fields before sending.' });
       setIsSubmitting(false);
       return;
     }
 
-    try {
-      // TODO: Replace this mailto fallback with real backend/API endpoint.
-      const mailtoLink = `mailto:e.comp2712@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-      )}`;
-      // Open user's email client
-      window.location.href = mailtoLink;
-      setSubmitSuccess(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      // Auto-hide success after 5s
-      setTimeout(() => setSubmitSuccess(false), 5000);
-    } catch (err) {
-      setSubmitError('Unable to open email client. Please try again later.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      honeypot: botField || ''
+    };
+
+    fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(async r => {
+        const data = await r.json().catch(() => ({}));
+        if (!r.ok) {
+          // For client errors (4xx) show toast only; avoid fallback so user can retry/edit.
+            if (r.status >= 400 && r.status < 500) {
+              setToast({ type: 'error', msg: data.error || 'Send failed. Check inputs or try later.' });
+              throw new Error('handled');
+            }
+            // For server errors (>=500) we will trigger fallback after catch.
+            throw new Error(data.error || 'Server error');
+        }
+        setToast({ type: 'success', msg: 'Message sent successfully!' });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      })
+      .catch(err => {
+        if (err.message === 'handled') return; // already surfaced
+        // Fallback to mailto on server error or network failure
+        const mailtoLink = `mailto:e.comp2712@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+        )}`;
+        window.location.href = mailtoLink;
+        setToast({ type: 'success', msg: 'Opened mail client as fallback.' });
+      })
+      .finally(() => setIsSubmitting(false));
   };
 
   const handleCopy = (value: string) => {
@@ -153,8 +174,7 @@ const Contact: React.FC = () => {
             <button type="submit" disabled={isSubmitting || !formValid} className="px-6 py-3 bg-accent text-white rounded-md flex items-center gap-2 hover:bg-opacity-90 transition-colors disabled:opacity-70">
               {isSubmitting ? 'Sending...' : <>Send Message <SendIcon size={18} /></>}
             </button>
-            {submitSuccess && <div className="p-4 bg-green-500 bg-opacity-20 text-green-400 rounded-md">Your message has been sent successfully!</div>}
-            {submitError && <div className="p-4 bg-red-500 bg-opacity-20 text-red-400 rounded-md">{submitError}</div>}
+            {/* Inline blocks removed in favor of global toast */}
           </form>
         </div>
       </div>
@@ -195,8 +215,7 @@ const Contact: React.FC = () => {
             <button type="submit" disabled={isSubmitting || !formValid} className="px-6 py-3 bg-accent text-white rounded-md flex items-center gap-2 hover:bg-opacity-90 transition-colors disabled:opacity-70">
               {isSubmitting ? 'Sending...' : <>Send Message <SendIcon size={18} /></>}
             </button>
-            {submitSuccess && <div className="p-4 bg-green-500 bg-opacity-20 text-green-400 rounded-md">Your message has been sent successfully!</div>}
-            {submitError && <div className="p-4 bg-red-500 bg-opacity-20 text-red-400 rounded-md">{submitError}</div>}
+            {/* Inline blocks removed in favor of global toast */}
           </form>
         </div>
         <div className="space-y-6">
@@ -235,6 +254,27 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </div>
+      {/* Toast container */}
+      {toast && (
+        <div
+          className={`fixed bottom-6 right-6 z-50 max-w-sm px-4 py-3 rounded-md shadow-lg border flex items-start gap-3 animate-fade-in-up
+            ${toast.type === 'success' ? 'bg-secondary/90 border-accent text-text' : 'bg-secondary/90 border-red-500 text-red-300'}`}
+          role="status"
+        >
+          <div className="flex-1 text-sm leading-snug">{toast.msg}</div>
+          <button
+            onClick={() => setToast(null)}
+            aria-label="Dismiss notification"
+            className="text-muted hover:text-text transition-colors"
+          >
+            ×
+          </button>
+        </div>
+      )}
+      <style>{`
+        @keyframes fade-in-up { from { opacity:0; transform: translateY(4px);} to { opacity:1; transform: translateY(0);} }
+        .animate-fade-in-up { animation: fade-in-up 180ms ease-out; }
+      `}</style>
     </div>
   );
 };

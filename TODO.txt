@@ -1,5 +1,6 @@
 about me:
 update headshot
+dog modal
 
 projects:
 add actual content
@@ -24,12 +25,10 @@ make print and download buttons work/add a resume file to assets for download
 contact:
 add email sending API
 
-dog modal?
-
+everything else:
 jest
 ci/cd simple pipeline
-
-everything else:
+deploy on vercel
 update headshot to match everywhere else
 update website link everywhere else
 update resume everywhere else

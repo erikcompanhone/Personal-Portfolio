@@ -1,12 +1,15 @@
 {
+  // Adjusted for Vercel CLI compatibility: removed experimental bundler-specific options
+  // bundler + allowImportingTsExtensions triggered errors in Vercel's TypeScript pass.
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "moduleResolution": "node",
+  "allowSyntheticDefaultImports": true,
+    // "allowImportingTsExtensions": true, // Removed for broader TS version compatibility
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,

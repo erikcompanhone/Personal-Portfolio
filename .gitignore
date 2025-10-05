@@ -45,3 +45,4 @@ coverage/
 # Temporary
 .tmp/
 .temp/
+.vercel
