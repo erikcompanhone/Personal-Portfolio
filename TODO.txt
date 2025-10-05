@@ -1,6 +1,7 @@
 projects:
-add actual content
-deploy top 4 projects and update live links
+deploy top 3 projects and update live links
+
+navbar: update github link
 
 everything else:
 jest and ci/cd simple pipeline
