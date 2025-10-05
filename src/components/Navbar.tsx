@@ -4,11 +4,9 @@ import { HomeIcon, BriefcaseIcon, CodeIcon, BookOpenIcon, GraduationCapIcon, Fil
 interface NavbarProps {
   isMobile: boolean;
   closeMenu: () => void;
+  collapsed?: boolean;
 }
-const Navbar: React.FC<NavbarProps> = ({
-  isMobile,
-  closeMenu
-}) => {
+const Navbar: React.FC<NavbarProps> = ({ isMobile, closeMenu, collapsed = false }) => {
   const location = useLocation();
   const navItems = [{
     path: '/',
@@ -43,17 +41,17 @@ const Navbar: React.FC<NavbarProps> = ({
     label: 'Contact',
     icon: <MailIcon size={20} />
   }];
-  return <nav className="flex flex-col space-y-1 w-full">
-      <div className="mb-8">
+  return <nav className={`flex flex-col space-y-1 w-full ${collapsed ? 'items-center' : ''}`}>
+      <div className={`mb-8 transition-opacity duration-200 ${collapsed ? 'opacity-0 pointer-events-none h-0 overflow-hidden' : ''}`}>
         <h1 className="text-2xl font-bold">Erik Companhone</h1>
         <p className="text-muted">Software Developer</p>
       </div>
-      {navItems.map(item => <Link key={item.path} to={item.path} className={`flex items-center px-4 py-3 rounded-md transition-colors duration-200 ${location.pathname === item.path ? 'bg-accent text-white' : 'hover:bg-secondary'}`} onClick={isMobile ? closeMenu : undefined}>
-          <span className="mr-3">{item.icon}</span>
-          {item.label}
+      {navItems.map(item => <Link key={item.path} to={item.path} className={`flex items-center px-4 py-3 rounded-md transition-colors duration-200 ${location.pathname === item.path ? 'bg-accent text-white' : 'hover:bg-secondary'} ${collapsed ? 'justify-center w-full px-2' : ''}`} onClick={isMobile ? closeMenu : undefined} title={collapsed ? item.label : undefined}>
+          <span className={`${collapsed ? '' : 'mr-3'}`}>{item.icon}</span>
+          {!collapsed && item.label}
         </Link>)}
-      <div className="mt-auto pt-8">
-  <div className="flex space-x-10 sm:space-x-8 justify-center">
+      <div className={`mt-auto pt-8 ${collapsed ? 'w-full flex justify-center' : ''}`}>
+  <div className={`flex ${collapsed ? 'flex-col space-y-4' : 'space-x-10 sm:space-x-8'} justify-center`}>
           <a href="https://github.com/erikalmeidah" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-text" aria-label="Erik Companhone on GitHub">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>

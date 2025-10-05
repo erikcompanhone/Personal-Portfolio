@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
-import { MenuIcon, XIcon } from 'lucide-react';
+import { MenuIcon, XIcon, ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-react';
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -8,9 +8,9 @@ const Layout: React.FC<LayoutProps> = ({
   children
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  const toggleSidebar = () => setSidebarCollapsed(prev => !prev);
   return <div className="min-h-screen bg-background text-text">
       {/* Mobile Menu Button */}
       <button className="fixed top-4 right-4 z-50 p-2 bg-secondary rounded-md md:hidden" onClick={toggleMobileMenu}>
@@ -22,14 +22,22 @@ const Layout: React.FC<LayoutProps> = ({
           <Navbar isMobile={true} closeMenu={() => setMobileMenuOpen(false)} />
         </div>
       </div>
-      {/* Desktop Sidebar */}
-      <div className="hidden md:block md:fixed md:inset-y-0 md:left-0 md:w-64 md:bg-primary md:border-r md:border-secondary">
-        <div className="flex flex-col h-full py-8 px-6">
-          <Navbar isMobile={false} closeMenu={() => {}} />
+      {/* Desktop / Tablet Sidebar (collapsible from md upward) */}
+      <div className={`hidden md:flex md:flex-col md:fixed md:inset-y-0 md:left-0 bg-primary border-r border-secondary transition-all duration-300 ${sidebarCollapsed ? 'md:w-20' : 'md:w-64'}`}>
+        <div className="flex-1 overflow-y-auto py-8 px-4">
+          <Navbar isMobile={false} closeMenu={() => {}} collapsed={sidebarCollapsed} />
         </div>
+        {/* Collapse toggle button visible on md+ */}
+        <button
+          onClick={toggleSidebar}
+          className="m-2 mb-4 h-10 rounded-md bg-secondary hover:bg-secondary/80 flex items-center justify-center text-muted transition-colors"
+          aria-label={sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+        >
+          {sidebarCollapsed ? <ChevronsRightIcon size={20} /> : <ChevronsLeftIcon size={20} />}
+        </button>
       </div>
       {/* Main Content */}
-      <main className="md:ml-64 min-h-screen pb-8">
+      <main className={`min-h-screen pb-8 transition-all duration-300 ${sidebarCollapsed ? 'md:ml-20' : 'md:ml-64'}`}>
         <div className="container mx-auto px-4 py-6 md:py-12">{children}</div>
       </main>
     </div>;
