@@ -1,8 +1,6 @@
 projects:
 deploy top 3 projects and update live links
 
-navbar: update github link
-
 everything else:
 jest and ci/cd simple pipeline
 update headshot
