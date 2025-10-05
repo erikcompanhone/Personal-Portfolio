@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { HomeIcon, BriefcaseIcon, CodeIcon, BookOpenIcon, GraduationCapIcon, FileTextIcon, MailIcon, UserIcon } from 'lucide-react';
+import { HomeIcon, BriefcaseIcon, CodeIcon, BookOpenIcon, GraduationCapIcon, FileTextIcon, MailIcon, UserIcon, PawPrint } from 'lucide-react';
+import DogModal from './DogModal';
 interface NavbarProps {
   isMobile: boolean;
   closeMenu: () => void;
@@ -71,6 +72,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMobile, closeMenu, collapsed = false 
     label: 'Contact',
     icon: <MailIcon size={20} />
   }];
+  const [showDog, setShowDog] = useState(false);
   return <nav className={`flex flex-col space-y-1 w-full ${collapsed ? 'items-center' : ''} overflow-hidden`}>
       {/* Brand area with reserved height to prevent layout shift */}
       <div className="mb-6 h-20 flex items-center w-full">
@@ -108,7 +110,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMobile, closeMenu, collapsed = false 
         );
       })}
       <div className={`mt-auto pt-8 ${collapsed ? 'w-full flex justify-center' : ''}`}>
-  <div className={`flex ${collapsed ? 'flex-col space-y-4' : 'space-x-10 sm:space-x-8'} justify-center`}>
+  <div className={`flex ${collapsed ? 'flex-col space-y-4' : 'space-x-10 sm:space-x-8'} justify-center items-center`}>
           <a href="https://github.com/erikalmeidah" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-text" aria-label="Erik Companhone on GitHub">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
@@ -121,8 +123,18 @@ const Navbar: React.FC<NavbarProps> = ({ isMobile, closeMenu, collapsed = false 
               <circle cx="4" cy="4" r="2"></circle>
             </svg>
           </a>
+          <button
+            type="button"
+            onClick={() => setShowDog(true)}
+            aria-label="Meet Mel"
+            title="Meet Mel"
+            className="p-2 rounded-full text-accent hover:bg-accent/15 ring-1 ring-accent/40 hover:ring-accent/70 transition-colors"
+          >
+            <PawPrint size={20} />
+          </button>
         </div>
       </div>
+      <DogModal open={showDog} onClose={() => setShowDog(false)} />
     </nav>;
 };
 export default Navbar;

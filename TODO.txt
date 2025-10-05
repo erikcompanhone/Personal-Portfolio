@@ -1,7 +1,3 @@
-about me:
-update headshot
-dog modal
-
 projects:
 add actual content
 deploy top 4 projects and update live links
@@ -9,7 +5,8 @@ deploy top 4 projects and update live links
 everything else:
 jest
 ci/cd simple pipeline
+update headshot
+update resume file here
 update headshot to match everywhere else
 update website link everywhere else
 update resume everywhere else
-update resume file here
