@@ -7,10 +7,14 @@ deploy top 4 projects and update live links
 
 skills:
 replace svgs with real ones
+make sure all sections are ordered by skill level
+reorganize images
 
 experience:
+reorganize images
 
 education:
+reorganize images
 
 personal:
 
@@ -19,6 +23,11 @@ make print and download buttons work/add a resume file to assets for download
 
 contact:
 add email sending API
+
+dog modal?
+
+jest
+ci/cd simple pipeline
 
 everything else:
 update headshot to match everywhere else

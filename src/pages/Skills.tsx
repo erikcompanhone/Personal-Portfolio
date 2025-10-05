@@ -63,6 +63,15 @@ const Skills: React.FC = () => {
       <h1 className="text-3xl font-bold mb-8">Skills & Tech Stack</h1>
 
       <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-6 border-b border-secondary pb-2">Languages</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {languages.map((skill, index) => (
+            <SkillBadge key={index} name={skill.name} level={skill.level} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 border-b border-secondary pb-2">Frontend Development</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {frontend.map((skill, index) => (
@@ -84,15 +93,6 @@ const Skills: React.FC = () => {
         <h2 className="text-2xl font-bold mb-6 border-b border-secondary pb-2">Tools & Technologies</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {toolsTech.map((skill, index) => (
-            <SkillBadge key={index} name={skill.name} level={skill.level} />
-          ))}
-        </div>
-      </section>
-
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 border-b border-secondary pb-2">Languages</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {languages.map((skill, index) => (
             <SkillBadge key={index} name={skill.name} level={skill.level} />
           ))}
         </div>
