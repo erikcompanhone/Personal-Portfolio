@@ -1,6 +1,3 @@
-navbar: 
-smoother transitions
-
 about me:
 update headshot
 
@@ -21,9 +18,7 @@ personal:
 add actual content
 
 resume:
-add actual content
-make print and download buttons work
-add a resume file to assets for download
+make print and download buttons work/add a resume file to assets for download
 
 contact:
 add email sending API
