@@ -1,141 +1,74 @@
-import React, { useState } from 'react';
-import ProjectCard, { ProjectProps } from '../components/ProjectCard';
-import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
+import { featured, nonFeatured } from '../data/projectsData';
+
+const Badge: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <span className="text-[11px] px-2 py-1 rounded bg-accent/10 text-accent font-medium tracking-wide">
+    {children}
+  </span>
+);
 
 const Projects: React.FC = () => {
-  const [showAllProjects, setShowAllProjects] = useState(false);
-
-  const featuredProjects: ProjectProps[] = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online store with cart, checkout, and payment integration.',
-      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example'
-    },
-    {
-      title: 'Task Management App',
-      description: 'A productivity app for organizing tasks with drag-and-drop functionality.',
-      image: 'https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80',
-      tags: ['React', 'TypeScript', 'Firebase'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example'
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'Real-time weather forecasting app with location detection and historical data.',
-      image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-      tags: ['JavaScript', 'Weather API', 'Chart.js'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example'
-    },
-    {
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for social media accounts with data visualization.',
-      image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
-      tags: ['React', 'D3.js', 'REST API'],
-      liveUrl: 'https://example.com',
-      githubUrl: 'https://github.com/example'
-    }
-  ];
-
-  // All projects without liveUrl for the dropdown view
-  const allProjectsForDropdown: ProjectProps[] = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online store with cart, checkout, and payment integration.',
-      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      githubUrl: 'https://github.com/example'
-    },
-    {
-      title: 'Task Management App',
-      description: 'A productivity app for organizing tasks with drag-and-drop functionality.',
-      image: 'https://images.unsplash.com/photo-1540350394557-8d14678e7f91?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80',
-      tags: ['React', 'TypeScript', 'Firebase'],
-      githubUrl: 'https://github.com/example'
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'Real-time weather forecasting app with location detection and historical data.',
-      image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-      tags: ['JavaScript', 'Weather API', 'Chart.js'],
-      githubUrl: 'https://github.com/example'
-    },
-    {
-      title: 'Social Media Dashboard',
-      description: 'Analytics dashboard for social media accounts with data visualization.',
-      image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
-      tags: ['React', 'D3.js', 'REST API'],
-      githubUrl: 'https://github.com/example'
-    },
-    {
-      title: 'Portfolio Website',
-      description: 'Personal portfolio website showcasing projects and skills.',
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-      tags: ['React', 'Tailwind CSS', 'Framer Motion'],
-      githubUrl: 'https://github.com/example'
-    },
-    {
-      title: 'Recipe Finder',
-      description: 'Search and filter recipes based on ingredients and dietary restrictions.',
-      image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1968&q=80',
-      tags: ['JavaScript', 'API Integration', 'CSS Grid'],
-      githubUrl: 'https://github.com/example'
-    },
-    {
-      title: 'Budget Tracker',
-      description: 'Personal finance app for tracking expenses and income with visualizations.',
-      image: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1926&q=80',
-      tags: ['React', 'IndexedDB', 'PWA'],
-      githubUrl: 'https://github.com/example'
-    },
-    {
-      title: 'Movie Database',
-      description: 'Search and browse movies with details, ratings, and recommendations.',
-      image: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1925&q=80',
-      tags: ['React', 'TMDB API', 'Styled Components'],
-      githubUrl: 'https://github.com/example'
-    }
-  ];
-
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-8">Projects</h1>
+    <div className="max-w-6xl mx-auto px-4 py-10 space-y-12">
+      <header className="space-y-2">
+        <h1 className="text-3xl font-bold text-text">Projects</h1>
+        <p className="text-muted text-sm max-w-2xl">
+          Highlighted work (Top 3) followed by additional and legacy projects. Images will load once added under
+          <code className="px-1">/assets/projects/&lt;slug&gt;</code>.
+        </p>
+      </header>
 
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-6 border-b border-secondary pb-2">Featured Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredProjects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+      <section>
+        <h2 className="text-2xl font-semibold mb-5 flex items-center gap-3">Featured <span className="text-sm font-normal text-accent/80">(Top 3)</span></h2>
+        <div className="grid gap-6 md:grid-cols-3">
+          {featured.map(p => (
+            <article key={p.slug} className="group relative rounded-lg bg-surface-alt p-5 flex flex-col gap-3 ring-1 ring-accent/15 hover:ring-accent/40 transition shadow-sm hover:shadow-md">
+              <div className="flex items-start justify-between gap-2">
+                <h3 className="font-semibold text-lg leading-snug text-text">{p.title}</h3>
+                {p.featuredRank && (
+                  <span className="text-xs px-2 py-1 rounded-md bg-accent/15 text-accent font-semibold">#{p.featuredRank}</span>
+                )}
+              </div>
+              <p className="text-sm text-muted line-clamp-4">{p.short}</p>
+              <div className="flex flex-wrap gap-2 mt-auto pt-1">
+                {p.tech.slice(0, 6).map(t => <Badge key={t}>{t}</Badge>)}
+              </div>
+              <div className="flex gap-4 pt-2 text-sm">
+                {p.live && <a className="text-accent hover:underline" target="_blank" rel="noopener noreferrer" href={p.live}>Live</a>}
+                {p.repo && <a className="text-accent hover:underline" target="_blank" rel="noopener noreferrer" href={p.repo}>Code</a>}
+              </div>
+              {p.status === 'upcoming' && (
+                <span className="absolute top-2 right-2 text-[10px] bg-accent/20 text-accent px-2 py-0.5 rounded">UPCOMING</span>
+              )}
+            </article>
           ))}
         </div>
       </section>
 
       <section>
-        <button
-          className="flex items-center gap-2 px-4 py-2 bg-secondary rounded-md mb-6 hover:bg-opacity-80 transition-colors"
-          onClick={() => setShowAllProjects(!showAllProjects)}
-        >
-          {showAllProjects ? (
-            <>
-              <ChevronUpIcon size={20} /> Hide All Projects
-            </>
-          ) : (
-            <>
-              <ChevronDownIcon size={20} /> View All Projects
-            </>
-          )}
-        </button>
+        <h2 className="text-xl font-semibold mb-4">Upcoming Highlight</h2>
+        <div className="rounded-lg p-5 bg-surface-alt ring-1 ring-accent/15">
+          <p className="font-medium text-text">Kitchen Chaos (Unity WebGL)</p>
+          <p className="text-sm text-muted mt-1">Planned WebGL build – will be added as 4th highlight once optimized.</p>
+        </div>
+      </section>
 
-        {showAllProjects && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {allProjectsForDropdown.map((project, index) => (
-              <ProjectCard key={index} {...project} />
-            ))}
-          </div>
-        )}
+      <section>
+        <h2 className="text-2xl font-semibold mb-5">All Projects</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {nonFeatured.map(p => (
+            <article key={p.slug} className="rounded-lg bg-surface-alt p-5 flex flex-col gap-3 ring-1 ring-white/5 hover:ring-accent/40 transition">
+              <h3 className="font-semibold text-base text-text">{p.title}</h3>
+              <p className="text-sm text-muted line-clamp-4">{p.short}</p>
+              <div className="flex flex-wrap gap-2 mt-auto pt-1">
+                {p.tech.slice(0, 5).map(t => <Badge key={t}>{t}</Badge>)}
+              </div>
+              <div className="flex gap-3 pt-2 text-xs">
+                {p.repo && <a className="text-accent hover:underline" target="_blank" rel="noopener noreferrer" href={p.repo}>Code</a>}
+                {p.live && <a className="text-accent hover:underline" target="_blank" rel="noopener noreferrer" href={p.live}>Live</a>}
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
     </div>
   );

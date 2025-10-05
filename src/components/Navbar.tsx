@@ -73,7 +73,8 @@ const Navbar: React.FC<NavbarProps> = ({ isMobile, closeMenu, collapsed = false 
     icon: <MailIcon size={20} />
   }];
   const [showDog, setShowDog] = useState(false);
-  return <nav className={`flex flex-col space-y-1 w-full ${collapsed ? 'items-center' : ''} overflow-hidden`}>
+  // Removed full overflow-hidden (causing circular button ring to clip) and added bottom padding.
+  return <nav className={`flex flex-col space-y-1 w-full ${collapsed ? 'items-center' : ''} overflow-x-hidden pb-4`}>
       {/* Brand area with reserved height to prevent layout shift */}
       <div className="mb-6 h-20 flex items-center w-full">
         {collapsed ? (
