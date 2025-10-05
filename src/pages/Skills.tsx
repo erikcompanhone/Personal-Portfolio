@@ -2,38 +2,45 @@ import React from 'react';
 import SkillBadge from '../components/SkillBadge';
 
 const Skills: React.FC = () => {
-  const frontendSkills = [
-    { name: 'HTML5', level: 5 },
-    { name: 'CSS3', level: 5 },
+  // Reintroduced categorized technical sections per new request
+
+  const frontend = [
     { name: 'JavaScript', level: 5 },
+    { name: 'React', level: 4 },
+    { name: 'React Native', level: 4 },
     { name: 'TypeScript', level: 4 },
-    { name: 'React', level: 5 },
-    { name: 'Redux', level: 4 },
-    { name: 'Next.js', level: 4 },
-    { name: 'Tailwind CSS', level: 5 }
+    { name: 'Expo', level: 4 },
+    { name: 'HTML', level: 4 },
+    { name: 'Tailwind', level: 3 },
+    { name: 'CSS', level: 3 }
   ];
 
-  const backendSkills = [
-    { name: 'Node.js', level: 4 },
+  const backend = [
+    { name: 'C++', level: 5 },
+    { name: 'Python', level: 4 },
+    { name: 'Node', level: 4 },
     { name: 'Express', level: 4 },
-    { name: 'MongoDB', level: 3 },
-    { name: 'PostgreSQL', level: 3 },
-    { name: 'GraphQL', level: 3 },
-    { name: 'REST API', level: 5 }
+    { name: "RESTful API's", level: 4 },
+    { name: 'SQL', level: 3 },
+    { name: 'Lua', level: 3 },
+    { name: 'Java', level: 3 },
+    { name: 'C#', level: 3 },
+    { name: 'Solidity', level: 2 }
   ];
 
-  const toolsSkills = [
-    { name: 'Git', level: 5 },
+  const toolsTech = [
+    { name: 'Android Studio', level: 5 },
+    { name: 'Vercel', level: 4 },
     { name: 'Docker', level: 3 },
-    { name: 'AWS', level: 3 },
-    { name: 'CI/CD', level: 4 },
-    { name: 'Jest', level: 4 },
-    { name: 'Webpack', level: 4 }
+    { name: 'Unity', level: 3 },
+    { name: 'Hardhat', level: 2 },
+    { name: 'Web3.js', level: 2 },
+    { name: 'MATLAB', level: 2 }
   ];
 
   const languages = [
     { name: 'English', level: 5 },
-    { name: 'Portuguese', level: 4 },
+    { name: 'Portuguese', level: 5 },
     { name: 'Spanish', level: 3 }
   ];
 
@@ -44,8 +51,8 @@ const Skills: React.FC = () => {
     { name: 'Adaptability', level: 4 },
     { name: 'Time Management', level: 4 },
     { name: 'Attention to Detail', level: 5 },
-    { name: 'Patience', level: 4 },
-    { name: 'Creativity', level: 4 },
+    { name: 'Patience', level: 5 },
+    { name: 'Creativity', level: 5 },
     { name: 'Continuous Learning', level: 5 },
     { name: 'Critical Thinking', level: 4 },
     { name: 'Leadership', level: 3 }
@@ -58,7 +65,7 @@ const Skills: React.FC = () => {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 border-b border-secondary pb-2">Frontend Development</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {frontendSkills.map((skill, index) => (
+          {frontend.map((skill, index) => (
             <SkillBadge key={index} name={skill.name} level={skill.level} />
           ))}
         </div>
@@ -67,7 +74,7 @@ const Skills: React.FC = () => {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 border-b border-secondary pb-2">Backend Development</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {backendSkills.map((skill, index) => (
+          {backend.map((skill, index) => (
             <SkillBadge key={index} name={skill.name} level={skill.level} />
           ))}
         </div>
@@ -76,7 +83,7 @@ const Skills: React.FC = () => {
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-6 border-b border-secondary pb-2">Tools & Technologies</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          {toolsSkills.map((skill, index) => (
+          {toolsTech.map((skill, index) => (
             <SkillBadge key={index} name={skill.name} level={skill.level} />
           ))}
         </div>

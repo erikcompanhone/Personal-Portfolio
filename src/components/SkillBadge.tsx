@@ -21,7 +21,7 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({ name, icon, level = 0 }) => {
       <div className="text-center">
         <p className="font-medium">{name}</p>
         {level > 0 && (
-          <div className="flex mt-2">
+          <div className="flex mt-2 justify-center">
             {[1, 2, 3, 4, 5].map(star => (
               <div
                 key={star}
