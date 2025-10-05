@@ -23,7 +23,6 @@ make print and download buttons work
 add a resume file to assets for download
 
 contact:
-add actual content
 add email sending API
 
 everything else:
