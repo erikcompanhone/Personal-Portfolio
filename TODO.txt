@@ -1,0 +1,32 @@
+about me:
+update headshot
+
+projects:
+add actual content
+deploy top 4 projects and update live links
+
+skills:
+add actual content
+
+experience:
+add actual content
+
+education:
+add actual content
+
+personal:
+add actual content
+
+resume:
+add actual content
+make print and download buttons work
+add a resume file to assets for download
+
+contact:
+add actual content
+add email sending API
+
+everything else:
+update headshot to match everywhere else
+update website link everywhere else
+update resume everywhere else
