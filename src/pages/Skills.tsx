@@ -13,7 +13,7 @@ const Skills: React.FC = () => {
     { name: 'HTML', level: 4 },
     { name: 'Tailwind', level: 3 },
     { name: 'CSS', level: 3 }
-  ];
+  ].sort((a, b) => b.level - a.level);
 
   const backend = [
     { name: 'C++', level: 5 },
@@ -26,7 +26,7 @@ const Skills: React.FC = () => {
     { name: 'Java', level: 3 },
     { name: 'C#', level: 3 },
     { name: 'Solidity', level: 2 }
-  ];
+  ].sort((a, b) => b.level - a.level);
 
   const toolsTech = [
     { name: 'Android Studio', level: 5 },
@@ -36,13 +36,13 @@ const Skills: React.FC = () => {
     { name: 'Hardhat', level: 2 },
     { name: 'Web3.js', level: 2 },
     { name: 'MATLAB', level: 2 }
-  ];
+  ].sort((a, b) => b.level - a.level);
 
   const languages = [
     { name: 'English', level: 5 },
     { name: 'Portuguese', level: 5 },
     { name: 'Spanish', level: 3 }
-  ];
+  ].sort((a, b) => b.level - a.level);
 
   const softSkills = [
     { name: 'Problem-Solving', level: 5 },
@@ -56,7 +56,7 @@ const Skills: React.FC = () => {
     { name: 'Continuous Learning', level: 5 },
     { name: 'Critical Thinking', level: 4 },
     { name: 'Leadership', level: 3 }
-  ];
+  ].sort((a, b) => b.level - a.level);
 
   return (
     <div>
