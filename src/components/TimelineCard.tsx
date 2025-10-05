@@ -22,7 +22,7 @@ const TimelineCard: React.FC<TimelineCardProps> = ({
       <div className="flex flex-col md:flex-row md:items-start gap-4">
         {logo && (
           <div className="flex flex-col items-center md:items-start">
-            <div className="mx-auto mb-2 md:mb-0 flex flex-shrink-0 w-28 h-28 md:w-24 md:h-24 rounded-full p-3 md:p-3 bg-white ring-1 ring-secondary/30 shadow-sm overflow-hidden">
+            <div className="mx-auto mb-2 md:mb-0 flex flex-shrink-0 w-28 h-28 md:w-24 md:h-24 rounded-full p-3 md:p-3 bg-white ring-2 ring-accent/70 shadow-sm overflow-hidden transition-shadow hover:shadow-[0_0_0_3px_rgba(30,110,80,0.35)]">
               <img
                 src={logo}
                 alt={organization}
