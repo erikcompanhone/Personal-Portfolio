@@ -11,7 +11,7 @@ const Home: React.FC = () => {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Hi, I'm <span className="text-accent">Erik Companhone</span>
           </h1>
-          <h2 className="text-xl md:text-2xl text-muted mb-6">Full Stack Developer</h2>
+          <h2 className="text-xl md:text-2xl text-muted mb-6">Software Developer</h2>
           <p className="text-lg mb-8 md:mb-8">
             I build exceptional and accessible digital experiences for the web.
             Focused on creating clean, user-friendly interfaces with modern

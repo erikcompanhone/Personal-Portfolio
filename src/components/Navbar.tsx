@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HomeIcon, BriefcaseIcon, CodeIcon, BookOpenIcon, GraduationCapIcon, FileTextIcon, MailIcon, UserIcon } from 'lucide-react';
 interface NavbarProps {
@@ -8,6 +8,36 @@ interface NavbarProps {
 }
 const Navbar: React.FC<NavbarProps> = ({ isMobile, closeMenu, collapsed = false }) => {
   const location = useLocation();
+  // Separate animation controls for brand and nav labels
+  const [showLabels, setShowLabels] = useState(!collapsed);
+  const [brandMounted, setBrandMounted] = useState(!collapsed); // whether brand JSX is rendered
+  const [brandVisible, setBrandVisible] = useState(!collapsed); // opacity/transform state
+  useEffect(() => {
+    let labelTimer: number | undefined;
+    let mountTimer: number | undefined;
+    let visibleTimer: number | undefined;
+    if (!collapsed) {
+      // Step 1: mount brand only after sidebar width finishes (~300ms)
+      mountTimer = window.setTimeout(() => {
+        setBrandMounted(true);
+        // Step 2: trigger visibility in next frame for pure rightward entrance
+        visibleTimer = window.setTimeout(() => setBrandVisible(true), 16);
+      }, 300);
+      // Labels appear after brand becomes visible
+      labelTimer = window.setTimeout(() => setShowLabels(true), 430);
+    } else {
+      // collapse: hide immediately, unmount after transition to avoid flicker
+      setBrandVisible(false);
+      setShowLabels(false);
+      // unmount brand shortly after (match duration 300ms) so remount is clean next expand
+      mountTimer = window.setTimeout(() => setBrandMounted(false), 300);
+    }
+    return () => {
+      if (labelTimer) window.clearTimeout(labelTimer);
+      if (mountTimer) window.clearTimeout(mountTimer);
+      if (visibleTimer) window.clearTimeout(visibleTimer);
+    };
+  }, [collapsed]);
   const navItems = [{
     path: '/',
     label: 'About Me',
@@ -41,15 +71,42 @@ const Navbar: React.FC<NavbarProps> = ({ isMobile, closeMenu, collapsed = false 
     label: 'Contact',
     icon: <MailIcon size={20} />
   }];
-  return <nav className={`flex flex-col space-y-1 w-full ${collapsed ? 'items-center' : ''}`}>
-      <div className={`mb-8 transition-opacity duration-200 ${collapsed ? 'opacity-0 pointer-events-none h-0 overflow-hidden' : ''}`}>
-        <h1 className="text-2xl font-bold">Erik Companhone</h1>
-        <p className="text-muted">Software Developer</p>
+  return <nav className={`flex flex-col space-y-1 w-full ${collapsed ? 'items-center' : ''} overflow-hidden`}>
+      {/* Brand area with reserved height to prevent layout shift */}
+      <div className="mb-6 h-20 flex items-center w-full">
+        {collapsed ? (
+          <div className="w-full flex justify-center">
+            <div className="w-12 h-12 rounded-full bg-accent text-white flex items-center justify-center font-bold text-xl select-none shadow-sm">
+              E
+            </div>
+          </div>
+        ) : brandMounted ? (
+          <div className={`flex flex-col transition-all duration-300 ease-out transform-gpu origin-left ${brandVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-3'}`}>
+            <h1 className="text-2xl font-bold leading-tight">Erik Companhone</h1>
+            <p className="text-muted text-sm">Software Developer</p>
+          </div>
+        ) : null}
       </div>
-      {navItems.map(item => <Link key={item.path} to={item.path} className={`flex items-center px-4 py-3 rounded-md transition-colors duration-200 ${location.pathname === item.path ? 'bg-accent text-white' : 'hover:bg-secondary'} ${collapsed ? 'justify-center w-full px-2' : ''}`} onClick={isMobile ? closeMenu : undefined} title={collapsed ? item.label : undefined}>
-          <span className={`${collapsed ? '' : 'mr-3'}`}>{item.icon}</span>
-          {!collapsed && item.label}
-        </Link>)}
+      {navItems.map((item, idx) => {
+        const active = location.pathname === item.path;
+        return (
+          <Link
+            key={item.path}
+            to={item.path}
+            className={`group flex items-center rounded-md transition-colors duration-200 w-full relative ${active ? 'bg-accent text-white' : 'hover:bg-secondary'} ${collapsed ? 'justify-center px-2 py-3' : 'px-4 py-3'} overflow-hidden`}
+            onClick={isMobile ? closeMenu : undefined}
+            title={collapsed ? item.label : undefined}
+          >
+            <span className={`${collapsed ? '' : 'mr-3'} transition-transform duration-300 transform-gpu flex-shrink-0 ${!showLabels && !collapsed ? 'translate-x-1' : 'translate-x-0'}`}>{item.icon}</span>
+            <span
+              className={`whitespace-nowrap transform-gpu transition-[opacity,transform] duration-300 ease-out ${showLabels && !collapsed ? 'opacity-100 translate-x-0 relative' : 'opacity-0 -translate-x-2 pointer-events-none absolute'} `}
+              style={{ transitionDelay: showLabels ? `${50 * idx}ms` : '0ms' }}
+            >
+              {!collapsed ? item.label : ''}
+            </span>
+          </Link>
+        );
+      })}
       <div className={`mt-auto pt-8 ${collapsed ? 'w-full flex justify-center' : ''}`}>
   <div className={`flex ${collapsed ? 'flex-col space-y-4' : 'space-x-10 sm:space-x-8'} justify-center`}>
           <a href="https://github.com/erikalmeidah" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-text" aria-label="Erik Companhone on GitHub">

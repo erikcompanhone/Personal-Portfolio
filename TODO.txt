@@ -1,3 +1,6 @@
+navbar: 
+smoother transitions
+
 about me:
 update headshot
 
