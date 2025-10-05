@@ -4,39 +4,28 @@ import TimelineCard from '../components/TimelineCard';
 const Experience: React.FC = () => {
   const experiences = [
     {
-      title: 'Senior Frontend Developer',
-      organization: 'Tech Innovations Inc.',
-      period: 'Jan 2021 - Present',
-      logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+      title: 'Full-Stack Junior Developer',
+      organization: 'MyWayv – Boca Raton, FL',
+      period: '05/2025 – Present',
+      logo: '/mywayv.png', // Will load once you add mywayv.png to public
       description: [
-        'Led a team of 5 developers in building a new customer portal using React and TypeScript',
-        'Implemented CI/CD pipelines that reduced deployment time by 70%',
-        'Architected and developed reusable component library used across multiple projects',
-        'Mentored junior developers and conducted code reviews to ensure code quality'
+        'Building an AI-driven, music-based emotional wellness platform delivering personalized user experiences.',
+        'Developing reusable TypeScript / React Native interface components with attention to performance & accessibility.',
+        'Accelerating iteration cycles via Vercel preview environments and close product/design collaboration.',
+        'Integrating Supabase-backed APIs and refining data flows for secure, low-latency session interactions.',
+        'Tech: TypeScript, React Native, Supabase, Vercel.'
       ]
     },
     {
-      title: 'Frontend Developer',
-      organization: 'Digital Solutions Ltd.',
-      period: 'Mar 2019 - Dec 2020',
-      logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
+      title: 'MineTest Project - Undergraduate Research / Senior Project (Unpaid)',
+      organization: 'University of Florida – Gainesville, FL',
+      period: '01/2023 – 05/2024',
+      logo: '/uf.png',
       description: [
-        'Developed responsive web applications using React, Redux, and SASS',
-        'Collaborated with UX designers to implement pixel-perfect interfaces',
-        'Optimized application performance, improving load times by 35%',
-        'Integrated RESTful APIs and implemented state management solutions'
-      ]
-    },
-    {
-      title: 'Junior Web Developer',
-      organization: 'Creative Agency',
-      period: 'Jun 2017 - Feb 2019',
-      logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80',
-      description: [
-        'Built and maintained websites for various clients using HTML, CSS, and JavaScript',
-        'Converted design mockups into functional web pages',
-        'Implemented responsive designs for mobile and desktop platforms',
-        'Assisted senior developers with debugging and testing'
+        'Progressed from junior contributor to team lead over 3 semesters driving Lua → C++ engine migration.',
+        'Coordinated sprint-style meetings to surface blockers and maintain delivery momentum.',
+        'Owned repository governance: code review standards, merge strategy, and branch hygiene.',
+        'Directed senior project planning and task allocation to align technical scope with academic milestones.'
       ]
     }
   ];
@@ -46,14 +35,14 @@ const Experience: React.FC = () => {
       <h1 className="text-3xl font-bold mb-8">Experience</h1>
       <div className="space-y-6">
         {experiences.map((experience, index) => (
-          <TimelineCard
-            key={index}
-            title={experience.title}
-            organization={experience.organization}
-            period={experience.period}
-            description={experience.description}
-            logo={experience.logo}
-          />
+            <TimelineCard
+              key={index}
+              title={experience.title}
+              organization={experience.organization}
+              period={experience.period}
+              description={experience.description}
+              logo={experience.logo}
+            />
         ))}
       </div>
     </div>

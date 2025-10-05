@@ -6,6 +6,7 @@ interface TimelineCardProps {
   period: string;
   description: string[];
   logo?: string;
+  subtitle?: string; // optional inline subtitle (e.g., project type, unpaid tag)
 }
 
 const TimelineCard: React.FC<TimelineCardProps> = ({
@@ -13,7 +14,8 @@ const TimelineCard: React.FC<TimelineCardProps> = ({
   organization,
   period,
   description,
-  logo
+  logo,
+  subtitle
 }) => {
   return (
     <div className="bg-primary p-6 rounded-lg shadow-md mb-6 relative border-l-4 border-accent">
@@ -36,7 +38,14 @@ const TimelineCard: React.FC<TimelineCardProps> = ({
           </div>
         )}
         <div className="flex-grow">
-          <h3 className="text-xl font-semibold">{title}</h3>
+          <h3 className="text-xl font-semibold flex flex-wrap items-center gap-2">
+            <span>{title}</span>
+            {subtitle && (
+              <span className="text-sm font-medium text-accent/90 bg-accent/10 px-2 py-0.5 rounded-md">
+                {subtitle}
+              </span>
+            )}
+          </h3>
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-muted mb-4">
             <span className="font-medium">{organization}</span>
             <span className="hidden sm:block">•</span>
