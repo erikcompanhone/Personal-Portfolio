@@ -38,7 +38,8 @@ const Layout: React.FC<LayoutProps> = ({
       </div>
       {/* Main Content */}
       <main className={`min-h-screen pb-8 transition-all duration-300 ${sidebarCollapsed ? 'md:ml-20' : 'md:ml-64'}`}>
-        <div className="container mx-auto px-4 py-6 md:py-12">{children}</div>
+        {/* Add extra top padding on mobile to avoid overlap with fixed hamburger button */}
+        <div className="container mx-auto px-4 pt-20 md:pt-12">{children}</div>
       </main>
     </div>;
 };

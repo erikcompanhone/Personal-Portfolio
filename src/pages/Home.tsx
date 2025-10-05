@@ -9,7 +9,7 @@ const Home: React.FC = () => {
         {/* Text first on mobile */}
         <div className="order-1 md:order-1 md:w-1/2 flex flex-col">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Hi, I'm <span className="text-accent">John Doe</span>
+            Hi, I'm <span className="text-accent">Erik Companhone</span>
           </h1>
           <h2 className="text-xl md:text-2xl text-muted mb-6">Full Stack Developer</h2>
           <p className="text-lg mb-8 md:mb-8">
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
           <div className="w-64 h-64 rounded-full bg-accent bg-opacity-10 overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
-              alt="John Doe"
+              alt="Erik Companhone"
               className="w-full h-full object-cover"
             />
           </div>
@@ -65,18 +65,27 @@ const Home: React.FC = () => {
       <section className="mt-16">
         <h2 className="text-2xl font-bold mb-6 border-b border-secondary pb-2">About Me</h2>
         <div className="space-y-4">
+          <p className="text-xl font-semibold">Erik Companhone</p>
           <p>
-            I'm a passionate software developer with 5+ years of experience building web applications. I specialize
-            in JavaScript, TypeScript, React, and Node.js. My approach to development focuses on writing clean,
-            maintainable code that delivers exceptional user experiences.
+            A <span className="font-semibold">software engineer</span> with a deep love for technology and coding. I recently graduated from the
+            <span className="font-semibold"> University of Florida</span> with a degree in <span className="font-semibold">Computer Science</span>, where I maintained a
+            <span className="font-semibold"> 3.58 GPA</span>. As a <span className="font-semibold">first-generation student</span>, completing my education was a huge milestone,
+            and it's fueled my drive to dive into the tech world and make an impact.
           </p>
           <p>
-            When I'm not coding, you can find me hiking in the mountains, reading science fiction, or experimenting
-            with new technologies. I'm always eager to learn and grow as a developer.
+            During my studies, I worked on numerous projects that gave me <span className="font-semibold">hands-on experience</span> with various
+            <span className="font-semibold"> programming languages, frameworks, and technologies</span>. Learning new tools and solving complex
+            problems energizes me, and I'm excited to bring this passion to my professional career.
           </p>
           <p>
-            I'm currently looking for new opportunities where I can apply my skills and contribute to meaningful
-            projects. Feel free to check out my portfolio and get in touch!
+            This portfolio showcases some of the <span className="font-semibold">key projects</span> I've worked on, highlighting the
+            <span className="font-semibold"> skills</span> I've developed along my education. I'm always eager to <span className="font-semibold">expand my knowledge</span>,
+            whether it's by diving deeper into familiar technologies or exploring new ones.
+          </p>
+          <p>
+            I'm currently working as a <span className="font-semibold">full-stack junior developer</span> contributing and learning from others at
+            <span className="font-semibold"> MyWayv</span>. If you're interested in collaborating or have any opportunities,
+            feel free to reach out—I'd love to connect!
           </p>
         </div>
       </section>
