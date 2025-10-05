@@ -19,8 +19,14 @@ const TimelineCard: React.FC<TimelineCardProps> = ({
     <div className="bg-primary p-6 rounded-lg shadow-md mb-6 relative border-l-4 border-accent">
       <div className="flex flex-col md:flex-row md:items-start gap-4">
         {logo && (
-          <div className="hidden md:block flex-shrink-0 w-16 h-16 bg-secondary rounded-full overflow-hidden">
-            <img src={logo} alt={organization} className="w-full h-full object-cover" />
+          <div className="hidden md:flex flex-shrink-0 w-20 h-20 rounded-md p-2 bg-white ring-1 ring-secondary/30 shadow-sm">
+            <img
+              src={logo}
+              alt={organization}
+              className={`w-full h-full object-contain contrast-110 transition-transform duration-200 ease-out ${logo.includes('mdchonors') ? 'scale-[1.25]' : ''}`}
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         )}
         <div className="flex-grow">
