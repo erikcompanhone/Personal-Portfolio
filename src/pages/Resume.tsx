@@ -31,9 +31,10 @@ const Resume: React.FC = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-4 print:mb-2">
+      <div className="flex justify-between items-center mb-2 print:mb-2">
         <h1 className="text-3xl font-bold">Resume</h1>
-        <div className="flex gap-4 flex-wrap">
+        {/* Desktop / tablet buttons */}
+        <div className="hidden md:flex gap-4 flex-wrap">
           <button
             aria-label="Print resume PDF"
             className="flex items-center gap-2 px-4 py-2 bg-accent text-white rounded-md hover:bg-opacity-90 transition-colors print:hidden"
@@ -51,7 +52,25 @@ const Resume: React.FC = () => {
           </a>
         </div>
       </div>
-      <div className="text-xs text-muted mb-6 print:mb-2 italic print:text-black">Updated Oct 2025</div>
+      <div className="text-xs text-muted mb-4 print:mb-2 italic print:text-black">Updated Oct 2025</div>
+      {/* Mobile buttons below update text */}
+      <div className="flex md:hidden gap-3 mb-6 print:hidden">
+        <button
+          aria-label="Print resume PDF"
+          className="flex items-center gap-2 px-4 py-2 bg-accent text-white rounded-md hover:bg-opacity-90 transition-colors"
+          onClick={handlePrint}
+        >
+          <PrinterIcon size={18} /> Print
+        </button>
+        <a
+          href="/assets/resume/resume.pdf"
+          download
+          aria-label="Download resume PDF"
+          className="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-opacity-80 rounded-md transition-colors"
+        >
+          <DownloadIcon size={18} /> Download PDF
+        </a>
+      </div>
 
       {/* Print styles (scoped) */}
       <style>{`@media print { 
