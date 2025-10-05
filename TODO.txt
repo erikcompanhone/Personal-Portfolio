@@ -6,7 +6,7 @@ add actual content
 deploy top 4 projects and update live links
 
 skills:
-add actual content
+replace svgs with real ones
 
 experience:
 
