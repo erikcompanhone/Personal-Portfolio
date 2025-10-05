@@ -33,7 +33,6 @@ const Skills: React.FC = () => {
     { name: 'Vercel', level: 4 },
     { name: 'Docker', level: 3 },
     { name: 'Unity', level: 3 },
-    { name: 'Hardhat', level: 2 },
     { name: 'Web3.js', level: 2 },
     { name: 'MATLAB', level: 2 }
   ].sort((a, b) => b.level - a.level);

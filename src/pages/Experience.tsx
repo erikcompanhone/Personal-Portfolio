@@ -7,7 +7,7 @@ const Experience: React.FC = () => {
       title: 'Full-Stack Junior Developer',
       organization: 'MyWayv – Boca Raton, FL',
       period: '05/2025 – Present',
-      logo: '/mywayv.png', // Will load once you add mywayv.png to public
+  logo: '/assets/experience/mywayv.png',
       description: [
         'Building an AI-driven, music-based emotional wellness platform delivering personalized user experiences.',
         'Developing reusable TypeScript / React Native interface components with attention to performance & accessibility.',
@@ -20,7 +20,7 @@ const Experience: React.FC = () => {
       title: 'MineTest Project - Undergraduate Research / Senior Project (Unpaid)',
       organization: 'University of Florida – Gainesville, FL',
       period: '01/2023 – 05/2024',
-      logo: '/uf.png',
+  logo: '/assets/education/uf.png',
       description: [
         'Progressed from junior contributor to team lead over 3 semesters driving Lua → C++ engine migration.',
         'Coordinated sprint-style meetings to surface blockers and maintain delivery momentum.',

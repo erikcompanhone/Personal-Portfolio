@@ -18,7 +18,7 @@ const Resume: React.FC = () => {
     iframe.style.width = '0';
     iframe.style.height = '0';
     iframe.style.border = '0';
-    iframe.src = '/resume.pdf';
+  iframe.src = '/assets/resume/resume.pdf';
     iframe.onload = () => {
       setTimeout(() => {
         iframe.contentWindow?.focus();
@@ -42,7 +42,7 @@ const Resume: React.FC = () => {
             <PrinterIcon size={18} /> Print
           </button>
           <a
-            href="/resume.pdf"
+            href="/assets/resume/resume.pdf"
             download
             aria-label="Download resume PDF"
             className="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-opacity-80 rounded-md transition-colors print:hidden"

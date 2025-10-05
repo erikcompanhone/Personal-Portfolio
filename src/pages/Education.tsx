@@ -7,7 +7,7 @@ const Education: React.FC = () => {
       title: "Bachelor of Science in Computer Science (GPA: 3.58 / 4.0)",
       organization: 'University of Florida – Gainesville, FL',
       period: 'Graduated 05/2024',
-  logo: '/uf.png',
+  logo: '/assets/education/uf.png',
       description: [
         'First-generation graduate with strong academic performance.',
         'Clubs: PC Building Society (2023/2024).'
@@ -17,7 +17,7 @@ const Education: React.FC = () => {
       title: 'Associate in Arts in Computer Science (GPA: 3.8 / 4.0)',
       organization: 'Miami Dade College – The Honors College, Wolfson Campus – Miami, FL',
       period: 'Graduated 05/2022',
-  logo: '/mdchonors.png',
+  logo: '/assets/education/mdchonors.png',
       description: [
         'Robotics Club (2020–2021).',
         'Wolves in Training (WIT): mentee (2020–2021) and mentor (2021–2022).'

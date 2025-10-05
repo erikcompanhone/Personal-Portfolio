@@ -6,16 +6,10 @@ projects:
 add actual content
 deploy top 4 projects and update live links
 
-skills:
-replace svgs with real ones
-
-resume:
-make print and download buttons work/add a resume file to assets for download
-
 everything else:
-reorganize images
 jest
 ci/cd simple pipeline
 update headshot to match everywhere else
 update website link everywhere else
 update resume everywhere else
+update resume file here
