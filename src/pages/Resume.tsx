@@ -104,7 +104,7 @@ const Resume: React.FC = () => {
         <section className="space-y-3" aria-labelledby="summary-heading">
           <h3 id="summary-heading" className="text-xl font-semibold border-b border-secondary pb-2">Summary</h3>
           <p className="text-sm leading-relaxed text-muted">
-            Junior full-stack / mobile engineer focused on <span className="text-text">AI‑assisted, music-based emotional wellness experiences</span>. Blend of
+            <span className="text-white font-medium">Junior full-stack / mobile engineer</span> focused on <span className="text-text">AI‑assisted, music-based emotional wellness experiences</span>. Blend of
             academic research (engine migration & systems refactor) and production delivery (React / React Native + Supabase + Vercel).
             Trilingual (English / Portuguese / Spanish) with a track record of progressive responsibility in collaborative, iterative teams.
           </p>
@@ -144,10 +144,10 @@ const Resume: React.FC = () => {
           <h3 className="text-xl font-semibold border-b border-secondary pb-2">Experience</h3>
           <div>
             <div className="flex flex-col md:flex-row md:justify-between md:items-start">
-              <h4 className="font-semibold">Full-Stack Junior Developer</h4>
+              <h4 className="font-semibold">MyWayv - Full-Stack Junior Developer</h4>
               <span className="text-muted md:ml-4 whitespace-nowrap">05/2025 – Present</span>
             </div>
-            <p className="text-muted">MyWayv – Boca Raton, FL.</p>
+            <p className="text-muted">Boca Raton, FL.</p>
             <ul className="list-disc list-inside mt-2 text-sm space-y-1">
               <li>Building an AI-driven, music-based emotional wellness platform delivering personalized user experiences.</li>
               <li>Developing reusable TypeScript / React Native interface components with attention to performance & accessibility.</li>
@@ -158,15 +158,16 @@ const Resume: React.FC = () => {
           </div>
           <div>
             <div className="flex flex-col md:flex-row md:justify-between md:items-start">
-              <h4 className="font-semibold">MineTest Project</h4>
+              <h4 className="font-semibold">MineTest Project - Undergraduate Research / Senior Project</h4>
               <span className="text-muted md:ml-4 whitespace-nowrap">01/2023 – 05/2024</span>
             </div>
-            <p className="text-muted">Undergraduate Research / Senior Project - University of Florida - Gainesville, FL.</p>
+            <p className="text-muted">University of Florida - Gainesville, FL.</p>
             <ul className="list-disc list-inside mt-2 text-sm space-y-1">
               <li>Progressed from junior contributor to team lead over 3 semesters driving Lua → C++ engine migration.</li>
               <li>Coordinated sprint-style meetings to surface blockers and maintain delivery momentum.</li>
               <li>Owned repository governance: code review standards, merge strategy, and branch hygiene.</li>
               <li>Directed senior project planning and task allocation to align technical scope with academic milestones.</li>
+              <li className="italic text-muted">Tech: C++, Lua, Git, Engine Tooling.</li>
             </ul>
           </div>
         </section>
