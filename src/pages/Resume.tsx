@@ -30,7 +30,7 @@ const Resume: React.FC = () => {
   };
 
   return (
-    <div>
+  <div className="max-w-4xl mx-auto w-full px-2 sm:px-4">
       <div className="flex justify-between items-center mb-2 print:mb-2">
         <h1 className="text-3xl font-bold">Resume</h1>
         {/* Desktop / tablet buttons */}
@@ -84,10 +84,10 @@ const Resume: React.FC = () => {
         #resume ul { margin-top:0.3rem !important; }
       }`}</style>
 
-  <div className="bg-primary p-8 rounded-lg shadow-md space-y-8 print:space-y-6" id="resume">
+  <div className="bg-primary p-8 rounded-lg shadow-md space-y-8 print:space-y-6 overflow-x-hidden break-words" id="resume">
         <div className="text-center space-y-2">
           <h2 className="text-2xl font-bold">Erik Companhone Andrade de Almeida</h2>
-          <p className="text-sm text-muted flex flex-col md:flex-row md:items-center md:justify-center gap-1 md:gap-2">
+          <p className="text-sm text-muted flex flex-col md:flex-row md:items-center md:justify-center gap-1 md:gap-2 flex-wrap">
             <span>e.comp2712@gmail.com</span>
             <span className="hidden md:inline">|</span>
             <span>786-491-3542</span>
