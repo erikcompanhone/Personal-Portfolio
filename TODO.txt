@@ -1,0 +1,6 @@
+jest coverage
+ci cd
+deploy top 3/4 and update links
+update website link everywhere else
+update resume in other places
+new headshot / update in other places
