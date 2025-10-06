@@ -104,7 +104,7 @@ const Resume: React.FC = () => {
         <section className="space-y-3" aria-labelledby="summary-heading">
           <h3 id="summary-heading" className="text-xl font-semibold border-b border-secondary pb-2">Summary</h3>
           <p className="text-sm leading-relaxed text-muted">
-            <span className="text-white font-medium">Junior full-stack / mobile engineer</span> focused on <span className="text-text">AI‑assisted, music-based emotional wellness experiences</span>. Blend of
+            <span className="text-white font-medium">Full-stack / mobile engineer</span> focused on <span className="text-text">AI‑assisted, music-based emotional wellness experiences</span>. Blend of
             academic research (engine migration & systems refactor) and production delivery (React / React Native + Supabase + Vercel).
             Trilingual (English / Portuguese / Spanish) with a track record of progressive responsibility in collaborative, iterative teams.
           </p>
@@ -144,7 +144,7 @@ const Resume: React.FC = () => {
           <h3 className="text-xl font-semibold border-b border-secondary pb-2">Experience</h3>
           <div>
             <div className="flex flex-col md:flex-row md:justify-between md:items-start">
-              <h4 className="font-semibold">MyWayv - Full-Stack Junior Developer</h4>
+              <h4 className="font-semibold">MyWayv - Full-Stack Developer</h4>
               <span className="text-muted md:ml-4 whitespace-nowrap">05/2025 – Present</span>
             </div>
             <p className="text-muted">Boca Raton, FL.</p>

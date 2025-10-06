@@ -85,7 +85,7 @@ const Home: React.FC = () => {
             whether it's by diving deeper into familiar technologies or exploring new ones.
           </p>
           <p>
-            I'm currently working as a <span className="font-semibold">full-stack junior developer</span> contributing and learning from others at
+            I'm currently working as a <span className="font-semibold">full-stack developer</span> contributing and learning from others at
             <span className="font-semibold"> MyWayv</span>. If you're interested in collaborating or have any opportunities,
             feel free to reach out—I'd love to connect!
           </p>

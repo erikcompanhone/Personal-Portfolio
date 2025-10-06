@@ -4,7 +4,7 @@ import TimelineCard from '../components/TimelineCard';
 const Experience: React.FC = () => {
   const experiences = [
     {
-      title: 'Full-Stack Junior Developer',
+      title: 'Full-Stack Developer',
       organization: 'MyWayv – Boca Raton, FL',
       period: '05/2025 – Present',
   logo: '/assets/experience/mywayv.png',
