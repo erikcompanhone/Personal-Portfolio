@@ -1,5 +1,8 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  ],
+  "devCommand": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }
