@@ -1,93 +1,77 @@
 import React, { useRef } from 'react';
-import { DownloadIcon, PrinterIcon } from 'lucide-react';
+import { PrinterIcon } from 'lucide-react';
+import { useReactToPrint } from 'react-to-print';
 
 const Resume: React.FC = () => {
-  const iframeRef = useRef<HTMLIFrameElement | null>(null);
-
-  const handlePrint = () => {
-    const existing = iframeRef.current;
-    if (existing) {
-      existing.contentWindow?.focus();
-      existing.contentWindow?.print();
-      return;
-    }
-    const iframe = document.createElement('iframe');
-    iframe.style.position = 'fixed';
-    iframe.style.right = '0';
-    iframe.style.bottom = '0';
-    iframe.style.width = '0';
-    iframe.style.height = '0';
-    iframe.style.border = '0';
-  iframe.src = '/assets/resume/resume.pdf';
-    iframe.onload = () => {
-      setTimeout(() => {
-        iframe.contentWindow?.focus();
-        iframe.contentWindow?.print();
-      }, 50);
-    };
-    document.body.appendChild(iframe);
-    iframeRef.current = iframe;
-  };
+  const resumeRef = useRef<HTMLDivElement | null>(null);
+  const handlePrint = useReactToPrint({
+    content: () => resumeRef.current,
+    documentTitle: 'Erik_Almeida_Resume',
+    removeAfterPrint: true,
+    pageStyle: `@page { margin: 10mm; } body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }`
+  });
 
   return (
   <div className="max-w-4xl mx-auto w-full px-2 sm:px-4">
       <div className="flex justify-between items-center mb-2 print:mb-2">
         <h1 className="text-3xl font-bold">Resume</h1>
-        {/* Desktop / tablet buttons */}
-        <div className="hidden md:flex gap-4 flex-wrap">
-          <button
-            aria-label="Print resume PDF"
-            className="flex items-center gap-2 px-4 py-2 bg-accent text-white rounded-md hover:bg-opacity-90 transition-colors print:hidden"
-            onClick={handlePrint}
-          >
-            <PrinterIcon size={18} /> Print
-          </button>
-          <a
-            href="/assets/resume/resume.pdf"
-            download
-            aria-label="Download resume PDF"
-            className="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-opacity-80 rounded-md transition-colors print:hidden"
-          >
-            <DownloadIcon size={18} /> Download PDF
-          </a>
-        </div>
+        <button
+          type="button"
+          onClick={handlePrint}
+          aria-label="Print or save resume as PDF"
+          className="px-4 py-2 rounded-md bg-accent text-white text-sm font-medium flex items-center gap-2 hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-accent/60 print:hidden"
+        >
+          <PrinterIcon size={18} /> Print / PDF
+        </button>
       </div>
       <div className="text-xs text-muted mb-4 print:mb-2 italic print:text-black">Updated Oct 2025</div>
-      {/* Mobile buttons below update text */}
-      <div className="flex md:hidden gap-3 mb-6 print:hidden">
-        <button
-          aria-label="Print resume PDF"
-          className="flex items-center gap-2 px-4 py-2 bg-accent text-white rounded-md hover:bg-opacity-90 transition-colors"
-          onClick={handlePrint}
-        >
-          <PrinterIcon size={18} /> Print
-        </button>
-        <a
-          href="/assets/resume/resume.pdf"
-          download
-          aria-label="Download resume PDF"
-          className="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-opacity-80 rounded-md transition-colors"
-        >
-          <DownloadIcon size={18} /> Download PDF
-        </a>
-      </div>
+  <div className="md:hidden mb-4 print:hidden" />
 
       {/* Print styles (scoped) */}
       <style>{`@media print { 
-        body { background: #ffffff !important; }
-        #resume { box-shadow: none !important; background: #ffffff !important; }
-        nav, header, footer { display:none !important; }
-        /* Attempt to keep to one page by tightening spacing */
-        #resume h3 { margin-top: 0.75rem; }
-        #resume .space-y-4 > * + * { margin-top:0.65rem !important; }
-        #resume .space-y-8 > * + * { margin-top:1.1rem !important; }
-        #resume ul { margin-top:0.3rem !important; }
+        body { background: #ffffff !important; color:#000 !important; }
+        #resume { box-shadow: none !important; background: #ffffff !important; color:#000 !important; }
+        #resume h1, #resume h2, #resume h3, #resume h4 { color:#000 !important; }
+        #resume .text-muted, #resume .text-text { color:#000 !important; }
+        nav, header, footer, .print:hidden, .print\\:hidden { display:none !important; }
+  /* Contact lines (allow two-line layout in print) */
+  #resume .contact-line { flex-wrap:wrap !important; white-space:normal !important; gap:0.4rem 0.75rem !important; justify-content:center !important; }
+        /* Remove any url duplication */
+        #resume a[href]::after { content: "" !important; }
+        /* Tighten spacing to favor single page */
+        #resume { padding:1.5rem !important; }
+        #resume h2 { margin-bottom:0.35rem !important; }
+        #resume h3 { margin-top:0.55rem !important; margin-bottom:0.25rem !important; }
+        #resume h4 { margin-bottom:0.15rem !important; }
+        #resume .space-y-8 > * + * { margin-top:0.75rem !important; }
+        #resume .space-y-6 > * + * { margin-top:0.55rem !important; }
+        #resume .space-y-4 > * + * { margin-top:0.4rem !important; }
+        #resume ul { margin-top:0.15rem !important; }
+        #resume li { margin-top:0.12rem !important; }
+        #resume p { margin-top:0.25rem !important; margin-bottom:0 !important; }
+        /* Condense specific sections */
+        #resume section.print-condense { font-size:0.9rem; }
+        #resume section#print-skills h4 { font-size:0.68rem !important; margin-bottom:0.1rem !important; }
+        #resume section#print-skills p { font-size:0.63rem !important; line-height:1.05rem !important; }
+        #resume section#print-skills .grid { gap:0.65rem !important; }
+        #resume section#print-experience ul li, #resume section#print-education ul li { font-size:0.63rem !important; line-height:0.95rem !important; }
+        #resume section#print-experience h4, #resume section#print-education h4 { font-size:0.72rem !important; }
+        #resume section#print-experience span.whitespace-nowrap, #resume section#print-education span.whitespace-nowrap { font-size:0.6rem !important; }
+        #resume section#print-experience p.text-muted, #resume section#print-education p.text-muted { font-size:0.6rem !important; }
+  #resume section#print-summary p { font-size:0.63rem !important; line-height:0.95rem !important; }
+  #resume section#print-summary span.font-medium, #resume section#print-summary span.text-text { font-weight:700 !important; }
+        /* Prevent page breaks inside key sections */
+        #resume section, #resume ul, #resume li { page-break-inside: avoid; break-inside: avoid; }
+        /* Scale down slightly if content barely overflows */
+        @page { size: A4; margin:10mm; }
+        /* If still too long, developer can further shrink font-size globally: */
       }`}</style>
 
-  <div className="bg-primary p-8 rounded-lg shadow-md space-y-8 print:space-y-6 overflow-x-hidden break-words" id="resume">
+  <div ref={resumeRef} className="bg-primary p-8 rounded-lg shadow-md space-y-8 print:space-y-6 overflow-x-hidden break-words" id="resume">
         <div className="text-center space-y-2">
           <h2 className="text-2xl font-bold">Erik Companhone Andrade de Almeida</h2>
-          <p className="text-sm text-muted flex flex-col md:flex-row md:items-center md:justify-center gap-1 md:gap-2 flex-wrap">
+          {/* On-screen contact line (can wrap) */}
+          <p className="text-sm text-muted flex flex-col md:flex-row md:items-center md:justify-center gap-1 md:gap-2 flex-wrap print:hidden">
             <span>e.comp2712@gmail.com</span>
             <span className="hidden md:inline">|</span>
             <span>786-491-3542</span>
@@ -98,21 +82,34 @@ const Resume: React.FC = () => {
             <span className="hidden md:inline">|</span>
             <span><a className="hover:underline" href="https://erikcompanhone.com" target="_blank" rel="noopener noreferrer">erikcompanhone.com</a></span>
           </p>
+          {/* Print contact lines (two-line layout) */}
+          <div className="hidden print:flex flex-col items-center text-black text-xs font-medium leading-snug contact-line max-w-full">
+            <p className="flex flex-wrap justify-center gap-2">
+              <span>e.comp2712@gmail.com</span>
+              <span>|</span>
+              <span>786-491-3542</span>
+              <span>|</span>
+              <span>https://www.linkedin.com/in/erik-companhone/</span>
+            </p>
+            <p className="flex flex-wrap justify-center gap-2">
+              <span>https://github.com/erikcompanhone</span>
+              <span>|</span>
+              <span>https://erikcompanhone.com</span>
+            </p>
+          </div>
         </div>
 
         {/* Summary */}
-        <section className="space-y-3" aria-labelledby="summary-heading">
+        <section id="print-summary" className="space-y-3 print-condense" aria-labelledby="summary-heading">
           <h3 id="summary-heading" className="text-xl font-semibold border-b border-secondary pb-2">Summary</h3>
-          <p className="text-sm leading-relaxed text-muted">
-            <span className="text-white font-medium">Full-stack / mobile engineer</span> focused on <span className="text-text">AI‑assisted, music-based emotional wellness experiences</span>. Blend of
-            academic research (engine migration & systems refactor) and production delivery (React / React Native + Supabase + Vercel).
-            Trilingual (English / Portuguese / Spanish) with a track record of progressive responsibility in collaborative, iterative teams.
+          <p className="text-sm leading-relaxed text-muted print:text-black print:leading-snug print:text-[0.63rem] print:[line-height:0.95rem]">
+            <span className="font-medium text-white print:text-black">Full-stack / mobile engineer</span> focused on <span className="text-text print:text-black">AI-assisted, music-based emotional wellness experiences.</span> Blend of academic research (engine migration & systems refactor) and production delivery (React / React Native + Supabase + Vercel). <span className="text-white font-medium print:text-black print:font-bold">Trilingual</span> (English / Portuguese / Spanish) with a track record of progressive responsibility in collaborative, iterative teams.
           </p>
         </section>
 
-        <section className="space-y-4" aria-labelledby="skills-heading">
+  <section id="print-skills" className="space-y-4 print-condense" aria-labelledby="skills-heading">
           <h3 id="skills-heading" className="text-xl font-semibold border-b border-secondary pb-2">Skills</h3>
-          <div className="grid md:grid-cols-2 gap-6 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-6 text-sm">
             <div>
               <h4 className="font-semibold mb-1">Programming</h4>
               <p className="text-muted leading-snug">C++, Python, JavaScript, TypeScript, Java, Lua, SQL, C#</p>
@@ -140,12 +137,12 @@ const Resume: React.FC = () => {
           </div>
         </section>
 
-        <section className="space-y-4" aria-labelledby="experience-heading">
+  <section id="print-experience" className="space-y-4 print-condense" aria-labelledby="experience-heading">
           <h3 className="text-xl font-semibold border-b border-secondary pb-2">Experience</h3>
           <div>
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start">
-              <h4 className="font-semibold">MyWayv - Full-Stack Developer</h4>
-              <span className="text-muted md:ml-4 whitespace-nowrap">05/2025 – Present</span>
+            <div className="flex justify-between items-start gap-4 print:gap-2">
+              <h4 className="font-semibold flex-1">MyWayv - Full-Stack Developer</h4>
+              <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">05/2025 – Present</span>
             </div>
             <p className="text-muted">Boca Raton, FL.</p>
             <ul className="list-disc list-inside mt-2 text-sm space-y-1">
@@ -157,9 +154,9 @@ const Resume: React.FC = () => {
             </ul>
           </div>
           <div>
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start">
-              <h4 className="font-semibold">MineTest Project - Undergraduate Research / Senior Project</h4>
-              <span className="text-muted md:ml-4 whitespace-nowrap">01/2023 – 05/2024</span>
+            <div className="flex justify-between items-start gap-4 print:gap-2">
+              <h4 className="font-semibold flex-1">MineTest Project - Undergraduate Research / Senior Project</h4>
+              <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">01/2023 – 05/2024</span>
             </div>
             <p className="text-muted">University of Florida - Gainesville, FL.</p>
             <ul className="list-disc list-inside mt-2 text-sm space-y-1">
@@ -172,12 +169,12 @@ const Resume: React.FC = () => {
           </div>
         </section>
 
-        <section className="space-y-4" aria-labelledby="education-heading">
+  <section id="print-education" className="space-y-4 print-condense" aria-labelledby="education-heading">
           <h3 id="education-heading" className="text-xl font-semibold border-b border-secondary pb-2">Education</h3>
           <div>
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start">
-              <h4 className="font-semibold">Bachelor's in Science in Computer Science (GPA: 3.58 / 4.0)</h4>
-              <span className="text-muted md:ml-4 whitespace-nowrap">Graduation: 05/2024</span>
+            <div className="flex justify-between items-start gap-4 print:gap-2">
+              <h4 className="font-semibold flex-1">Bachelor's in Science in Computer Science (GPA: 3.58 / 4.0)</h4>
+              <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">Graduation: 05/2024</span>
             </div>
             <p className="text-muted">University of Florida – Gainesville, FL.</p>
             <ul className="list-disc list-inside mt-2 text-sm space-y-1">
@@ -185,9 +182,9 @@ const Resume: React.FC = () => {
             </ul>
           </div>
           <div>
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start">
-              <h4 className="font-semibold">Associate in Arts in Computer Science (GPA: 3.8 / 4.0)</h4>
-              <span className="text-muted md:ml-4 whitespace-nowrap">Graduation: 05/2022</span>
+            <div className="flex justify-between items-start gap-4 print:gap-2">
+              <h4 className="font-semibold flex-1">Associate in Arts in Computer Science (GPA: 3.8 / 4.0)</h4>
+              <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">Graduation: 05/2022</span>
             </div>
             <p className="text-muted">The Honors College / Miami Dade College - Wolfson Campus - Miami, FL.</p>
             <ul className="list-disc list-inside mt-2 text-sm space-y-1">
@@ -195,9 +192,9 @@ const Resume: React.FC = () => {
             </ul>
           </div>
           <div>
-            <div className="flex flex-col md:flex-row md:justify-between md:items-start">
-              <h4 className="font-semibold">Volunteering</h4>
-              <span className="text-muted md:ml-4 whitespace-nowrap">08/2020 – 05/2022</span>
+            <div className="flex justify-between items-start gap-4 print:gap-2">
+              <h4 className="font-semibold flex-1">Volunteering</h4>
+              <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">08/2020 – 05/2022</span>
             </div>
             <p className="text-muted">Bezerra de Menezes Community Center – Doral, FL.</p>
             <ul className="list-disc list-inside mt-2 text-sm space-y-1">
