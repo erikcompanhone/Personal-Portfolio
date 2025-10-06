@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import { MenuIcon, XIcon, ChevronsLeftIcon, ChevronsRightIcon } from 'lucide-react';
 interface LayoutProps {
@@ -10,6 +10,15 @@ const Layout: React.FC<LayoutProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+    return () => document.body.classList.remove('overflow-hidden');
+  }, [mobileMenuOpen]);
   const toggleSidebar = () => setSidebarCollapsed(prev => !prev);
   return <div className="min-h-screen bg-background text-text">
       {/* Mobile Menu Button */}
@@ -17,8 +26,8 @@ const Layout: React.FC<LayoutProps> = ({
         {mobileMenuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
       </button>
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-background z-40 transform ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:hidden`}>
-        <div className="flex flex-col h-full pt-16 px-6">
+      <div className={`fixed inset-0 bg-background z-40 transform ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:hidden overflow-hidden`}>
+        <div className="flex flex-col h-full pt-16 px-6 overflow-y-auto overscroll-contain">
           <Navbar isMobile={true} closeMenu={() => setMobileMenuOpen(false)} />
         </div>
       </div>
