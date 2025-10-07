@@ -1,5 +1,6 @@
 jest coverage
 ci cd
+add readme
 deploy top 3/4 and update links
 update website link everywhere else
 update resume in other places

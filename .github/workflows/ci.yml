@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install deps
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Type Check
+        run: npx tsc --noEmit
+      - name: Test
+        run: npm test -- --coverage
+      - name: Upload coverage summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage
+      - name: Build
+        run: npm run build
+
+  # Optionally add a job to raise thresholds to 90% once stable
+  enforce-coverage:
+    needs: build-test
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coverage gate (informational)
+        run: echo "Current coverage gate is interim (60%). Increase to 90% after test suite expansion." 
