@@ -22,10 +22,10 @@ module.exports = {
   ],
   coverageThreshold: {
     global: {
-      statements: 60,
-      branches: 55,
-      functions: 55,
-      lines: 60
+      statements: 90,
+      branches: 90,
+      functions: 90,
+      lines: 90
     }
   },
   testPathIgnorePatterns: ['/node_modules/', '/dist/']
