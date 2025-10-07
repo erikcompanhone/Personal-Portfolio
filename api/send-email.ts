@@ -23,8 +23,11 @@ function rateLimit(ip: string): boolean {
 }
 
 function sanitize(message: string): string {
+  // Build control-char matcher safely to satisfy no-control-regex rule
+  // Build pattern without embedding raw control characters (appeases eslint no-control-regex)
+  const controlChars = new RegExp(`[${String.raw`\x00-\x1F\x7F`}]`, 'g');
   return message
-    .replace(/[\u0000-\u001F\u007F]/g, '')
+    .replace(controlChars, '')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .slice(0, 4000); // hard cap
@@ -38,7 +41,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!resendKey) {
     return res.status(500).json({ error: 'Missing RESEND_API_KEY on server' });
   }
-  let body: any = {};
+  interface BodyShape { name?: string; email?: string; subject?: string; message?: string; honeypot?: string }
+  let body: BodyShape = {};
   try {
     body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
   } catch (e) {
@@ -55,7 +59,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).json({ ok: true }); // silently accept
   }
 
-  const safe = (v: string) => String(v || '').trim();
+  const safe = (v: unknown) => (typeof v === 'string' ? v : String(v || '')).trim();
   const _name = safe(name);
   const _email = safe(email);
   const _subject = safe(subject);
@@ -70,29 +74,31 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const resend = new Resend(resendKey);
+  const resend = new Resend(resendKey);
     const plain = `Name: ${_name}\nEmail: ${_email}\nIP: ${ip}\n\n${_message}`;
     const html = `<!DOCTYPE html><html><body style="font-family:Arial,Helvetica,sans-serif; line-height:1.5;">\n<h2 style="margin:0 0 12px;">New Portfolio Contact</h2>\n<p><strong>Name:</strong> ${_name}</p>\n<p><strong>Email:</strong> ${_email}</p>\n<p><strong>IP:</strong> ${ip}</p>\n<p style="margin-top:16px; white-space:pre-wrap;">${_message}</p>\n<hr style="margin:24px 0;"/>\n<p style="font-size:12px;color:#666;">Sent via portfolio contact form.</p>\n</body></html>`;
 
     // Resend API returns { data, error } rather than throwing on logical errors.
-    const { data, error } = await resend.emails.send({
+    interface SendResult { data: { id?: string } | null; error: { statusCode?: number; status?: number; message?: string } | null }
+    const options = {
       from: 'Portfolio Contact <onboarding@resend.dev>',
-      to: ['e.comp2712@gmail.com'],
+      to: ['e.comp2712@gmail.com'] as string[],
       reply_to: _email,
       subject: _subject || 'Portfolio Contact Form',
       text: plain,
       html
-    } as any); // cast to any to avoid version drift issues
-
+    };
+    const sendResult = await resend.emails.send(options) as unknown as SendResult; // narrow to minimal shape we consume
+    const { data, error } = sendResult || { data: null, error: null };
     if (error) {
-      // Log full error server-side for debugging during dev
       console.error('send-email error', error);
-      const status = (error as any)?.statusCode || (error as any)?.status || 502;
-      return res.status(status).json({ error: 'Email send failed', detail: (error as any)?.message || 'Unknown error' });
+      const status = error.statusCode || error.status || 502;
+      return res.status(status).json({ error: 'Email send failed', detail: error.message || 'Unknown error' });
     }
-    return res.status(200).json({ ok: true, id: (data as any)?.id || null });
-  } catch (err: any) {
-    console.error('send-email unexpected exception', err);
-    return res.status(500).json({ error: 'Email send crashed', detail: err?.message });
+    return res.status(200).json({ ok: true, id: data?.id || null });
+  } catch (err) {
+    const e = err as Error & { message?: string };
+    console.error('send-email unexpected exception', e);
+    return res.status(500).json({ error: 'Email send crashed', detail: e.message });
   }
 }

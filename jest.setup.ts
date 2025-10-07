@@ -1,20 +1,36 @@
 import '@testing-library/jest-dom';
 
 // Mock scrollTo to avoid jsdom errors
-window.scrollTo = window.scrollTo || (() => {});
+if (!window.scrollTo) {
+  // Provide a no-op implementation; returning void explicitly satisfies lint
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  window.scrollTo = () => {};
+}
 
 // Polyfill TextEncoder/TextDecoder for libs (resend) that expect them in Node env
 import { TextEncoder, TextDecoder } from 'util';
-// @ts-ignore
-if (!global.TextEncoder) global.TextEncoder = TextEncoder;
-// @ts-ignore
-if (!global.TextDecoder) global.TextDecoder = TextDecoder as any;
+declare global {
+  // eslint-disable-next-line no-var
+  var TextEncoder: typeof TextEncoder;
+  // eslint-disable-next-line no-var
+  var TextDecoder: typeof TextDecoder;
+}
+// Only assign if truly missing (use in operator instead of typeof for accuracy)
+if (!('TextEncoder' in global)) {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+  (global as unknown as { TextEncoder: typeof TextEncoder }).TextEncoder = TextEncoder;
+}
+if (!('TextDecoder' in global)) {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+  (global as unknown as { TextDecoder: typeof TextDecoder }).TextDecoder = TextDecoder;
+}
 
-// Optional: silence React Router warnings for missing act in some transition cases
-const originalError = console.error;
-console.error = (...args: any[]) => {
-  if (typeof args[0] === 'string' && /Warning:.*not wrapped in act/.test(args[0])) {
-    return;
+// Optional: silence React Router act warning noise while keeping genuine errors
+const originalError = console.error.bind(console);
+console.error = (...args: Parameters<typeof console.error>): ReturnType<typeof console.error> => {
+  const [first, ...rest] = args;
+  if (typeof first === 'string' && /Warning:.*not wrapped in act/.test(first)) {
+    return undefined as unknown as ReturnType<typeof console.error>;
   }
-  originalError(...args);
+  return originalError(first, ...rest);
 };

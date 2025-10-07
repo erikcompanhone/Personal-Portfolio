@@ -3,7 +3,7 @@ import DogModal from '../components/DogModal';
 
 describe('DogModal', () => {
   it('does not render when closed', () => {
-    const { queryByRole } = render(<DogModal open={false} onClose={() => {}} />);
+  const { queryByRole } = render(<DogModal open={false} onClose={() => undefined} />);
     expect(queryByRole('dialog')).toBeNull();
   });
 

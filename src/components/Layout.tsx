@@ -34,7 +34,7 @@ const Layout: React.FC<LayoutProps> = ({
       {/* Desktop / Tablet Sidebar (collapsible from md upward) */}
       <div className={`hidden md:flex md:flex-col md:fixed md:inset-y-0 md:left-0 bg-primary border-r border-secondary transition-all duration-300 ${sidebarCollapsed ? 'md:w-20' : 'md:w-64'}`}>
         <div className="flex-1 overflow-y-auto py-8 px-4">
-          <Navbar isMobile={false} closeMenu={() => {}} collapsed={sidebarCollapsed} />
+          <Navbar isMobile={false} closeMenu={() => undefined} collapsed={sidebarCollapsed} />
         </div>
         {/* Collapse toggle button visible on md+ */}
         <button

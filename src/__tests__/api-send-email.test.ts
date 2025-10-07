@@ -6,21 +6,30 @@ jest.mock('resend', () => {
 import handler from '../../api/send-email';
 
 // Minimal mocks for VercelRequest/Response
-function createReq(body: any, method = 'POST', ip = '1.1.1.1') {
-  return {
-    method,
-    body: JSON.stringify(body),
-    headers: { 'x-forwarded-for': ip },
-    socket: { remoteAddress: ip }
-  } as any;
+interface MockReq {
+  method: string; body: string; headers: Record<string, string>; socket: { remoteAddress?: string };
+}
+interface MockRes {
+  statusCode: number; jsonData: unknown; status: (code: number) => MockRes; json: (data: unknown) => MockRes;
 }
 
-function createRes() {
-  const res: any = {};
-  res.statusCode = 200;
-  res.status = (code: number) => { res.statusCode = code; return res; };
-  res.jsonData = null;
-  res.json = (data: any) => { res.jsonData = data; return res; };
+// Helper to invoke the handler with structural mock objects without leaking any usage.
+async function invoke(req: MockReq, res: MockRes) {
+  // We only depend on a tiny subset of VercelRequest/Response; suppress the structural mismatch.
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error test mock adaptation
+  await handler(req, res);
+}
+function createReq(body: unknown, method = 'POST', ip = '1.1.1.1'): MockReq {
+  return { method, body: JSON.stringify(body), headers: { 'x-forwarded-for': ip }, socket: { remoteAddress: ip } };
+}
+function createRes(): MockRes {
+  const res: MockRes = {
+    statusCode: 200,
+    jsonData: null,
+    status(code: number) { this.statusCode = code; return this; },
+    json(data: unknown) { this.jsonData = data; return this; }
+  };
   return res;
 }
 
@@ -36,21 +45,21 @@ describe('api/send-email handler', () => {
   it('rejects invalid method', async () => {
     const req = createReq({}, 'GET');
     const res = createRes();
-    await handler(req, res);
+  await invoke(req, res);
     expect(res.statusCode).toBe(405);
   });
 
   it('validates fields', async () => {
     const req = createReq({ name: 'A', email: 'bad', subject: 'x', message: 'short' });
     const res = createRes();
-    await handler(req, res);
+  await invoke(req, res);
     expect(res.statusCode).toBe(400);
   });
 
   it('succeeds on happy path', async () => {
     const req = createReq({ name: 'John', email: 'john@example.com', subject: 'Hello', message: 'This is a valid message with more than 15 chars.' });
     const res = createRes();
-    await handler(req, res);
+  await invoke(req, res);
     expect(res.statusCode).toBe(200);
     expect(res.jsonData).toHaveProperty('ok', true);
   });

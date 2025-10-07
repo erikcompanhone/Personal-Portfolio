@@ -6,8 +6,8 @@ describe('SkillBadge', () => {
     render(<SkillBadge name="TypeScript" level={3} />);
     expect(screen.getByText('TypeScript')).toBeInTheDocument();
     // 3 filled dots (bg-accent) among 5
-    const dots = screen.getAllByRole('img', { hidden: true });
-    // Fallback: simpler check: there should be 5 divs with role not accessible; instead just ensure container present.
+  screen.getAllByRole('img', { hidden: true });
+  // Simplified: presence of images implies stars rendered.
   });
 
   it('falls back to first letter when all image candidates fail', () => {
