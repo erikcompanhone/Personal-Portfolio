@@ -375,7 +375,27 @@ export const featured = projects
   .filter(p => p.category === 'featured')
   .sort((a, b) => (a.featuredRank || 99) - (b.featuredRank || 99));
 
-export const nonFeatured = projects.filter(p => p.category !== 'featured');
+// Custom priority: ensure these four appear first (in the given order) when listing non-featured projects.
+const priorityOrder = [
+  'Simple Meditation App',
+  'Threads Clone',
+  'Minetest Project',
+  'Crowdfunding DApp'
+];
+export const nonFeatured = projects
+  .filter(p => p.category !== 'featured')
+  .sort((a, b) => {
+    const ai = priorityOrder.indexOf(a.title);
+    const bi = priorityOrder.indexOf(b.title);
+    const aPriority = ai === -1 ? Number.MAX_SAFE_INTEGER : ai;
+    const bPriority = bi === -1 ? Number.MAX_SAFE_INTEGER : bi;
+    if (aPriority !== bPriority) return aPriority - bPriority;
+    // Stable-ish secondary sort: importance desc, then title
+    const aImp = a.importance ?? 0;
+    const bImp = b.importance ?? 0;
+    if (bImp !== aImp) return bImp - aImp;
+    return a.title.localeCompare(b.title);
+  });
 
 export const byCategory = (category: Project['category']) =>
   projects.filter(p => p.category === category);

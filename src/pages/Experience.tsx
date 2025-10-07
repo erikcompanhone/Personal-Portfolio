@@ -25,7 +25,8 @@ const Experience: React.FC = () => {
         'Progressed from junior contributor to team lead over 3 semesters driving Lua → C++ engine migration.',
         'Coordinated sprint-style meetings to surface blockers and maintain delivery momentum.',
         'Owned repository governance: code review standards, merge strategy, and branch hygiene.',
-        'Directed senior project planning and task allocation to align technical scope with academic milestones.'
+        'Directed senior project planning and task allocation to align technical scope with academic milestones.',
+        'Tech: C++, Lua, Git, Engine Tooling.'
       ]
     }
   ];

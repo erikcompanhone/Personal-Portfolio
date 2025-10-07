@@ -44,6 +44,10 @@ const Navbar: React.FC<NavbarProps> = ({ isMobile, closeMenu, collapsed = false 
     label: 'About Me',
     icon: <HomeIcon size={20} />
   }, {
+    path: '/experience',
+    label: 'Experience',
+    icon: <BriefcaseIcon size={20} />
+  }, {
     path: '/projects',
     label: 'Projects',
     icon: <CodeIcon size={20} />
@@ -51,10 +55,6 @@ const Navbar: React.FC<NavbarProps> = ({ isMobile, closeMenu, collapsed = false 
     path: '/skills',
     label: 'Skills',
     icon: <BookOpenIcon size={20} />
-  }, {
-    path: '/experience',
-    label: 'Experience',
-    icon: <BriefcaseIcon size={20} />
   }, {
     path: '/education',
     label: 'Education',
