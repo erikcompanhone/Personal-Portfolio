@@ -1,4 +1,6 @@
+new headshot
 deploy top 3/4 and update links
-update website link everywhere else
+
+update website link in other places
 update resume in other places
-new headshot / update in other places
+update new headshot in other places
