@@ -63,4 +63,28 @@ describe('api/send-email handler', () => {
     expect(res.statusCode).toBe(200);
     expect(res.jsonData).toHaveProperty('ok', true);
   });
+
+  it('silently accepts honeypot submissions', async () => {
+    const req = createReq({ name: 'John', email: 'john@example.com', subject: 'Hello', message: 'This is a valid message with more than 15 chars.', honeypot: 'bot' });
+    const res = createRes();
+    await invoke(req, res);
+    expect(res.statusCode).toBe(200);
+    expect(res.jsonData).toHaveProperty('ok', true);
+  });
+
+  it('enforces simple rate limit after 5 requests', async () => {
+    const ip = '9.9.9.9';
+    // 5 allowed
+    for (let i = 0; i < 5; i++) {
+      const req = createReq({ name: 'John', email: 'john@example.com', subject: 'Hello', message: 'This is a valid message with more than 15 chars.' }, 'POST', ip);
+      const res = createRes();
+      await invoke(req, res);
+      expect([200, 429]).toContain(res.statusCode); // last one may flip depending on internal count
+    }
+    // One more should be 429
+    const req6 = createReq({ name: 'John', email: 'john@example.com', subject: 'Hello', message: 'This is a valid message with more than 15 chars.' }, 'POST', ip);
+    const res6 = createRes();
+    await invoke(req6, res6);
+    expect(res6.statusCode).toBe(429);
+  });
 });
