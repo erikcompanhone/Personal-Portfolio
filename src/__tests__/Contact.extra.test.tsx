@@ -27,8 +27,8 @@ describe('Contact extra coverage', () => {
   });
 
   it('shows client error toast without fallback on 400 response', async () => {
-    const originalFetch = global.fetch;
-    global.fetch = jest.fn().mockResolvedValue({ ok: false, status: 400, json: async () => ({ error: 'Bad request' }) } as any);
+  const originalFetch = global.fetch;
+  global.fetch = jest.fn().mockResolvedValue({ ok: false, status: 400, json: async () => ({ error: 'Bad request' }) }) as unknown as typeof fetch;
     render(<Contact />);
     const submit = screen.getAllByRole('button', { name: /Send Message/i })[0];
     fillBaseForm(0);
@@ -44,7 +44,7 @@ describe('Contact extra coverage', () => {
     render(<Contact />);
     // The second form is only visible at xl breakpoint normally; since tests don't emulate CSS breakpoints,
     // we still target the second set of inputs to execute duplicate handlers.
-    const submitSecond = screen.getAllByRole('button', { name: /Send Message/i })[1];
+  const submitSecond = screen.getAllByRole('button', { name: /Send Message/i })[1];
     fillBaseForm(1);
     // Honeypot remains empty
     await waitFor(() => expect(submitSecond).not.toBeDisabled());

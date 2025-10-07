@@ -9,11 +9,15 @@ describe('Contact additional branch coverage', () => {
 
   it('falls back via server 500 response (distinct from network reject)', async () => {
     const originalLocation = window.location;
-    // @ts-ignore
-    delete window.location; // allow reassignment
-    // @ts-ignore
-    window.location = { href: '' };
-    (globalThis as any).fetch = jest.fn().mockResolvedValue({
+    let assigned = originalLocation.href;
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: {
+        get href() { return assigned; },
+        set href(v: string) { assigned = v; }
+      }
+    });
+    (globalThis as unknown as { fetch: typeof fetch }).fetch = jest.fn().mockResolvedValue({
       ok: false,
       status: 500,
       json: () => Promise.resolve({ error: 'Server exploded' })
@@ -25,11 +29,9 @@ describe('Contact additional branch coverage', () => {
     fireEvent.change(screen.getAllByLabelText(/Subject$/i)[0], { target: { value: 'Hello' } });
     fireEvent.change(screen.getAllByLabelText(/Message$/i)[0], { target: { value: 'Long enough message content here.' } });
     fireEvent.click(screen.getAllByRole('button', { name: /Send Message/i })[0]);
-    await waitFor(() => expect((window.location as any).href).toMatch(/^mailto:/));
+    await waitFor(() => expect((window.location.href)).toMatch(/^mailto:/));
     expect(screen.getByRole('status')).toHaveTextContent(/Opened mail client as fallback/i);
-  // Restore original location
-  // @ts-ignore
-  window.location = originalLocation;
+    Object.defineProperty(window, 'location', { configurable: true, value: originalLocation });
   });
 
   it('shows validation error for name-xl field when blurred empty', () => {
@@ -40,7 +42,7 @@ describe('Contact additional branch coverage', () => {
   });
 
   it('submits successfully using XL form duplicate', async () => {
-    (globalThis as any).fetch = jest.fn().mockResolvedValue({
+    (globalThis as unknown as { fetch: typeof fetch }).fetch = jest.fn().mockResolvedValue({
       ok: true,
       status: 200,
       json: () => Promise.resolve({ success: true })

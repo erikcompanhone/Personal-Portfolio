@@ -27,7 +27,8 @@ describe('Navbar collapsed + DogModal error fallback', () => {
   // Simulate sequential errors equal to candidate length
     // We don't know length directly; simulate enough errors until alt element replaced
     for (let i = 0; i < 6 && screen.queryByAltText(/Mel the dog/i); i++) {
-      fireEvent.error(screen.getByAltText(/Mel the dog/i)!);
+      const img = screen.queryByAltText(/Mel the dog/i);
+      if (img) fireEvent.error(img);
     }
     expect(screen.getByText(/Image unavailable/i)).toBeInTheDocument();
     // Escape still closes from fallback state

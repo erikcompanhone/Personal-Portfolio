@@ -22,7 +22,7 @@ describe('Contact validation conditional branches', () => {
   });
 
   it('clears validation states after successful submit', async () => {
-    (globalThis as any).fetch = jest.fn().mockResolvedValue({
+    (globalThis as { fetch?: typeof fetch }).fetch = jest.fn().mockResolvedValue({
       ok: true,
       status: 200,
       json: () => Promise.resolve({ success: true })

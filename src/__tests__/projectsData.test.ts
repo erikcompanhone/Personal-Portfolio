@@ -21,7 +21,7 @@ describe('projectsData tail exports', () => {
   });
 
   it('returns empty array for unknown category', () => {
-    const res = byCategory('__does_not_exist__' as any);
+    const res = byCategory('__does_not_exist__' as unknown as typeof projects[number]['category']);
     expect(res).toEqual([]);
   });
 

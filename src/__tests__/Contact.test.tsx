@@ -26,7 +26,7 @@ describe('Contact form', () => {
 
   it('submits successfully and clears form', async () => {
     const originalFetch = global.fetch;
-    global.fetch = jest.fn().mockResolvedValue({ ok: true, json: async () => ({ ok: true }) } as any);
+  global.fetch = jest.fn().mockResolvedValue({ ok: true, json: async () => ({ ok: true }) }) as unknown as typeof fetch;
   render(<Contact />);
     const name = screen.getAllByLabelText(/Name/i)[0];
     const email = screen.getAllByLabelText(/Email/i)[0];
@@ -54,7 +54,7 @@ describe('Contact form', () => {
   const mockLoc = { href: '' } as Location & { href: string };
   Object.defineProperty(window, 'location', { value: mockLoc, writable: true });
     const originalFetch = global.fetch;
-    global.fetch = jest.fn().mockResolvedValue({ ok: false, status: 500, json: async () => ({ error: 'Server error' }) } as any);
+  global.fetch = jest.fn().mockResolvedValue({ ok: false, status: 500, json: async () => ({ error: 'Server error' }) }) as unknown as typeof fetch;
   render(<Contact />);
     const name = screen.getAllByLabelText(/Name/i)[0];
     const email = screen.getAllByLabelText(/Email/i)[0];
@@ -67,7 +67,7 @@ describe('Contact form', () => {
     fireEvent.change(message, { target: { value: 'This is a sufficiently long message.' } });
     await waitFor(() => expect(submit).not.toBeDisabled());
     fireEvent.click(submit);
-    await waitFor(() => expect((window.location as any).href).toMatch(/^mailto:/));
+  await waitFor(() => expect(window.location.href).toMatch(/^mailto:/));
     global.fetch = originalFetch;
   Object.defineProperty(window, 'location', { value: originalLocation });
   });

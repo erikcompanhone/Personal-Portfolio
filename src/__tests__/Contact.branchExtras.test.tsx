@@ -20,14 +20,12 @@ describe('Contact network + dismissal + clipboard error branches', () => {
     // Stub window.location to capture href assignment without triggering jsdom navigation
     const originalLocation = window.location;
     let assigned = originalLocation.href;
-    // @ts-ignore override for test
-    delete (window as any).location;
     Object.defineProperty(window, 'location', {
+      configurable: true,
       value: {
         get href() { return assigned; },
-        set href(v: string) { assigned = v; },
-      },
-      configurable: true
+        set href(v: string) { assigned = v; }
+      }
     });
     render(<Contact />);
     const { submit } = fill(0);
@@ -36,14 +34,18 @@ describe('Contact network + dismissal + clipboard error branches', () => {
     await waitFor(() => expect(assigned).toMatch(/^mailto:/i));
     expect(screen.getByRole('status')).toHaveTextContent(/Opened mail client/i);
     // restore
-    delete (window as any).location;
-    Object.defineProperty(window, 'location', { value: originalLocation });
+    Object.defineProperty(window, 'location', { configurable: true, value: originalLocation });
     global.fetch = originalFetch;
   });
 
   it('dismisses success toast', async () => {
     const originalFetch = global.fetch;
-    global.fetch = jest.fn().mockResolvedValue({ ok: true, json: async () => ({ ok: true }) } as any);
+    type JsonSuccess = { ok: boolean };
+    const successResponse: Partial<Response> & { json: () => Promise<JsonSuccess> } = {
+      ok: true,
+      json: async () => ({ ok: true })
+    };
+    global.fetch = jest.fn().mockResolvedValue(successResponse as Response);
     render(<Contact />);
     const { submit } = fill(0);
     await waitFor(() => expect(submit).not.toBeDisabled());

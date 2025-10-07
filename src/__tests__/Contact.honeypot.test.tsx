@@ -5,9 +5,9 @@ import { MemoryRouter } from 'react-router-dom';
 describe('Contact honeypot early return', () => {
   it('does not attempt fetch when honeypot filled', async () => {
     // Ensure a fetch function exists we can spy on (jsdom env may not define it)
-    const originalFetch = (globalThis as any).fetch;
-    const mockFetch = jest.fn();
-    (globalThis as any).fetch = mockFetch;
+  const originalFetch: typeof fetch | undefined = (globalThis as { fetch?: typeof fetch }).fetch;
+  const mockFetch = jest.fn();
+  (globalThis as { fetch?: typeof fetch }).fetch = mockFetch as unknown as typeof fetch;
     render(<MemoryRouter><Contact /></MemoryRouter>);
   // Fill required visible user fields (pick first occurrence since mobile + xl forms both rendered in DOM)
   fireEvent.change(screen.getAllByLabelText(/Name$/i)[0], { target: { value: 'Erik' } });
@@ -20,6 +20,6 @@ describe('Contact honeypot early return', () => {
     const btn = screen.getAllByRole('button', { name: /Send Message/i })[0];
     fireEvent.click(btn);
     await waitFor(() => expect(mockFetch).not.toHaveBeenCalled());
-    (globalThis as any).fetch = originalFetch; // restore
+    (globalThis as { fetch?: typeof fetch }).fetch = originalFetch;
   });
 });
