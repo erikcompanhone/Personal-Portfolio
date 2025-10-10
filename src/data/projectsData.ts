@@ -91,10 +91,10 @@ const legacy: RawProject[] = [
   {
     rawTitle: 'Kitchen Chaos',
     title: 'Kitchen Chaos',
-    short: 'Unity cooking game – WebGL build upcoming.',
+    short: 'Unity cooking game.',
     description: [
       'Unity-based single-player cooking management game inspired by Overcooked.',
-      'Focuses on timing, asset management, and engaging gameplay loops with WebGL optimization in progress.'
+      'Focuses on timing, asset management, and engaging gameplay loops.'
     ],
     tech: ['Unity', 'C#'],
   image: 'Kitchen Chaos.jpg',
