@@ -3,8 +3,6 @@ deploy steam and update links
 new headshot
 
 take down erikalmeida.com
-update website link in other places
-update resume in other places
 update new headshot in other places
+
 update readme on project repos
-deploy webGL kitchen chaos?
