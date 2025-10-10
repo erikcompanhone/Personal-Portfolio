@@ -3,7 +3,6 @@ import React, { useState, useMemo } from 'react';
 interface SkillBadgeProps {
   name: string;
   icon?: React.ReactNode; // Explicit icon overrides logo logic
-  level?: number; // 1-5
   logoOverrideSlug?: string; // Optional custom slug if file name differs
 }
 
@@ -30,7 +29,7 @@ const slugify = (raw: string) =>
 
 const POSSIBLE_EXTS = ['png', 'svg', 'webp']; // prefer provided 100x100 png first
 
-const SkillBadge: React.FC<SkillBadgeProps> = ({ name, icon, level = 0, logoOverrideSlug }) => {
+const SkillBadge: React.FC<SkillBadgeProps> = ({ name, icon, logoOverrideSlug }) => {
   const [candidateIndex, setCandidateIndex] = useState(0);
   const [failed, setFailed] = useState(false);
 
@@ -86,18 +85,6 @@ const SkillBadge: React.FC<SkillBadgeProps> = ({ name, icon, level = 0, logoOver
       </div>
       <div className="text-center">
         <p className="font-medium">{name}</p>
-        {level > 0 && (
-          <div className="flex mt-2 justify-center">
-            {[1, 2, 3, 4, 5].map(star => (
-              <div
-                key={star}
-                className={`w-2 h-2 mx-0.5 rounded-full ${
-                  star <= level ? 'bg-accent' : 'bg-secondary'
-                }`}
-              />
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );
