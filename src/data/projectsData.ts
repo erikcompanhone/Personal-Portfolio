@@ -75,12 +75,13 @@ const legacy: RawProject[] = [
     title: 'Pokedex App',
     short: 'Pokémon browser with stats & types.',
     description: [
-      'Full-stack application to explore detailed Pokémon data using PokeAPI, React UI and Express backend.',
-      'Displays stats, types, abilities, and media in a responsive interface.'
+      'Modern Pokédex built with React + Vite featuring real-time search and detailed stats, types, abilities, and descriptions.',
+      'Uses Vercel Serverless Functions to proxy PokeAPI with caching, delivering a fast, responsive SPA experience.'
     ],
-    tech: ['React', 'Node.js', 'Express', 'RESTful API\'s', 'CSS', 'HTML', 'JavaScript'],
+    tech: ['React', 'Vite', 'Axios', 'CSS Modules', 'Vercel Functions', 'PokeAPI', 'JavaScript'],
     repo: 'https://github.com/erikalmeidah/Pokedex',
-    image: 'pokedex.jpg',
+    live: 'https://pokedex.erikcompanhone.com',
+  image: 'pokedex.png',
     category: 'featured',
     featuredRank: 3,
     status: 'live',

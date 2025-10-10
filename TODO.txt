@@ -1,6 +1,12 @@
+deploy panther and update links
+deploy steam and update links
+remove ratings
+increase desc on projects?
 new headshot
-deploy top 3/4 and update links
 
+take down erikalmeida.com
 update website link in other places
 update resume in other places
 update new headshot in other places
+update readme on project repos
+deploy webGL kitchen chaos?
