@@ -1,7 +1,5 @@
 deploy panther and update links
 deploy steam and update links
-remove ratings
-increase desc on projects?
 new headshot
 
 take down erikalmeida.com

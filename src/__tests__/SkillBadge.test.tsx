@@ -2,12 +2,9 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import SkillBadge from '../components/SkillBadge';
 
 describe('SkillBadge', () => {
-  it('renders name and stars for level', () => {
-    render(<SkillBadge name="TypeScript" level={3} />);
+  it('renders skill name', () => {
+    render(<SkillBadge name="TypeScript" />);
     expect(screen.getByText('TypeScript')).toBeInTheDocument();
-    // 3 filled dots (bg-accent) among 5
-  screen.getAllByRole('img', { hidden: true });
-  // Simplified: presence of images implies stars rendered.
   });
 
   it('falls back to first letter when all image candidates fail', () => {
