@@ -5,10 +5,10 @@ import { featured, nonFeatured } from '../data/projectsData';
 const Projects: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
 
-  // Map featured data to ProjectCard props (using short + first description sentence)
+  // Map featured data to ProjectCard props (using description instead of short)
   const featuredCards: ProjectProps[] = featured.map(p => ({
     title: p.title,
-    description: p.short,
+    description: p.description?.join(' ') || p.short,
     image: p.image ? `/assets/projects/${p.image}` : '/assets/projects/placeholder.png',
     tags: p.tech.slice(0,4),
     liveUrl: p.live,
@@ -17,7 +17,7 @@ const Projects: React.FC = () => {
 
   const allOtherCards: ProjectProps[] = nonFeatured.map(p => ({
     title: p.title,
-    description: p.short,
+    description: p.description?.join(' ') || p.short,
     image: p.image ? `/assets/projects/${p.image}` : '/assets/projects/placeholder.png',
     tags: p.tech.slice(0,4),
     liveUrl: p.live,

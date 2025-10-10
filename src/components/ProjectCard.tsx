@@ -35,7 +35,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
       </div>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-semibold mb-2 line-clamp-2 min-h-[3.5rem]">{title}</h3>
-        <p className="text-muted mb-4 line-clamp-3 min-h-[4.5rem]">{description}</p>
+        <p className="text-muted mb-4">{description}</p>
         <div className="flex flex-wrap gap-2 mb-6 overflow-hidden min-h-[2.75rem] items-start content-start">
           {tags.map((tag: string, index: number) => (
             <span

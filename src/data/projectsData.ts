@@ -43,8 +43,8 @@ const legacy: RawProject[] = [
     title: 'Game Recommender V2',
     short: 'Full-stack game discovery & tracking platform.',
     description: [
-      'GameRecV2 is a full-stack web application designed to recommend and track video games, offering users an intuitive interface for discovering new games and managing their collections.',
-      'Frontend built with React + Vite; backend Node/Express with SQLite; integrates Steam & RAWG APIs; containerized via Docker.'
+      'Full-stack web application for discovering and tracking video games with an intuitive interface.',
+      'Built with React, Vite, TypeScript, and Node/Express backend using SQLite, integrating Steam & RAWG APIs.'
     ],
     tech: ['React', 'Vite', 'TypeScript', 'Node.js', 'Express', 'Docker', 'RESTful API\'s', 'SQL'],
     repo: 'https://github.com/erikalmeidah/GameRecommenderV2',
@@ -59,8 +59,8 @@ const legacy: RawProject[] = [
     title: 'Florida Panther Data Analyzer',
     short: 'Interactive conservation data & mapping tool.',
     description: [
-      'Interactive web application combining telemetry & mortality datasets for conservation insight.',
-      'Includes filters, heatmaps, graphs, and spatial exploration for public awareness.'
+      'Interactive web application combining telemetry and mortality datasets for Florida panther conservation insights.',
+      'Features filters, heatmaps, graphs, and spatial mapping for public awareness.'
     ],
     tech: ['React', 'Leaflet', 'Recharts', 'TypeScript', 'Node.js', 'Express', 'MySQL', 'SQL', 'Python'],
     repo: 'https://github.com/erikalmeidah/FloridaPanther',
@@ -75,8 +75,8 @@ const legacy: RawProject[] = [
     title: 'Pokedex App',
     short: 'Pokémon browser with stats & types.',
     description: [
-      'Modern Pokédex built with React + Vite featuring real-time search and detailed stats, types, abilities, and descriptions.',
-      'Uses Vercel Serverless Functions to proxy PokeAPI with caching, delivering a fast, responsive SPA experience.'
+      'Modern Pokédex built with React and Vite featuring real-time search and detailed Pokémon information.',
+      'Uses Vercel Serverless Functions to proxy PokeAPI with caching for fast, responsive performance.'
     ],
     tech: ['React', 'Vite', 'Axios', 'CSS Modules', 'Vercel Functions', 'PokeAPI', 'JavaScript'],
     repo: 'https://github.com/erikalmeidah/Pokedex',
@@ -94,7 +94,7 @@ const legacy: RawProject[] = [
     short: 'Unity cooking game – WebGL build upcoming.',
     description: [
       'Unity-based single-player cooking management game inspired by Overcooked.',
-      'Focus on timing, asset management, and gameplay loop; WebGL optimization pending.'
+      'Focuses on timing, asset management, and engaging gameplay loops with WebGL optimization in progress.'
     ],
     tech: ['Unity', 'C#'],
   image: 'Kitchen Chaos.jpg',
@@ -108,8 +108,8 @@ const legacy: RawProject[] = [
     title: 'Crowdfunding DApp',
     short: 'Ethereum testnet crowdfunding platform.',
     description: [
-      'Decentralized application enabling campaign creation & contributions via smart contracts.',
-      'Implements factory + campaign contracts with React front-end and Web3.js integration.'
+      'Decentralized application enabling campaign creation and contributions through Ethereum smart contracts.',
+      'Features factory and campaign contracts with a React frontend and Web3.js integration.'
     ],
     tech: ['Solidity', 'Hardhat', 'React', 'Web3.js', 'JavaScript', 'MetaMask'],
     repo: 'https://github.com/erikalmeidah/CrowdfundingDApp',
@@ -122,7 +122,8 @@ const legacy: RawProject[] = [
     title: 'Minetest Project',
     short: 'Open-source C++ voxel engine contribution.',
     description: [
-      'Contributions to a large-scale C++ voxel engine: bug fixes, performance improvements, gameplay tweaks.'
+      'Contributions to a large-scale C++ voxel engine including bug fixes and performance improvements.',
+      'Enhanced gameplay mechanics and engine stability for the open-source community.'
     ],
     tech: ['C++', 'Lua'],
     repo: 'https://github.com/erikalmeidah/minetest',
@@ -135,7 +136,8 @@ const legacy: RawProject[] = [
     title: 'Threads Clone',
     short: 'Mobile social feed prototype (tutorial-based).',
     description: [
-      'Threads-inspired app with auth, real-time feed, profiles, and threaded replies using Supabase + TanStack Query.'
+      'Threads-inspired mobile app featuring authentication, real-time feed, and user profiles.',
+      'Built with React Native, Expo, and Supabase for backend functionality and real-time data.'
     ],
     tech: ['React Native', 'Expo', 'TypeScript', 'Supabase', 'TanStack Query', 'Expo Router', 'NativeWind'],
     repo: 'https://github.com/erikalmeidah/Threads-Clone',
@@ -148,7 +150,8 @@ const legacy: RawProject[] = [
     title: 'Speech to Text / Text to Speech Demos',
     short: 'Voice recognition & synthesis showcase.',
     description: [
-      'Dual demo app for speech recognition and TTS using modern speech APIs + ElevenLabs voices.'
+      'Dual-purpose demo application showcasing speech recognition and text-to-speech capabilities.',
+      'Integrates modern speech APIs and ElevenLabs voices for high-quality audio synthesis.'
     ],
     tech: ['React Native', 'Expo', 'TypeScript', 'ElevenLabs', 'Expo Router'],
     repo: 'https://github.com/erikalmeidah/TextToSpeech-and-SpeechToText-Demo',
@@ -161,7 +164,8 @@ const legacy: RawProject[] = [
     title: 'Simple Meditation App',
     short: 'Guided ambient meditation with scenes.',
     description: [
-      'Meditation timer with ambient scenes, affirmations, and audio loops; interface built with React Native.'
+      'Mobile meditation timer featuring ambient scenes, affirmations, and calming audio loops.',
+      'Built with React Native and Expo for a peaceful mindfulness experience.'
     ],
     tech: ['React Native', 'Expo', 'Tailwind CSS', 'Context API'],
     repo: 'https://github.com/erikalmeidah/MeditationApp',
@@ -174,7 +178,8 @@ const legacy: RawProject[] = [
     title: 'NYC Crash Analyzer',
     short: 'Interactive crash data exploration tool.',
     description: [
-      'Academic project analyzing New York City crash data with SQL + React visual front-end.'
+      'Academic project analyzing New York City traffic crash data with SQL database queries.',
+      'Features interactive React visualization frontend for exploring patterns and trends.'
     ],
     tech: ['React', 'SQL', 'HTML', 'CSS', 'JavaScript'],
     repo: 'https://github.com/erikalmeidah/NYC-Crash-Data-Analyzer',
@@ -187,7 +192,8 @@ const legacy: RawProject[] = [
     title: 'Game Recommender (Original)',
     short: 'First iteration C++ recommendation engine.',
     description: [
-      'C++ project fetching Steam profile data and recommending games using rated dataset.'
+      'C++ project that fetches Steam profile data and recommends games based on user ratings.',
+      'Served as the foundation for the improved V2 implementation.'
     ],
     tech: ['C++', 'RESTful API\'s'],
     repo: 'https://github.com/erikalmeidah/GameRecommender',
@@ -200,7 +206,8 @@ const legacy: RawProject[] = [
     title: 'Compiler Project',
     short: 'Multi-pass image language compiler in Java.',
     description: [
-      'Academic multi-pass compiler for a professor-designed language manipulating pixel images.'
+      'Academic multi-pass compiler for a custom image manipulation language designed by professor.',
+      'Implements lexical analysis, parsing, and code generation for pixel operations.'
     ],
     tech: ['Java'],
     repo: 'https://github.com/erikalmeidah/COP4020---Compiler-Project',
@@ -213,7 +220,8 @@ const legacy: RawProject[] = [
     title: 'Portfolio (Previous Version)',
     short: 'Earlier personal portfolio iteration.',
     description: [
-      'Legacy React portfolio focusing on layout & component experimentation.'
+      'Legacy React portfolio website showcasing earlier projects and design experiments.',
+      'Focused on learning component architecture and responsive layout techniques.'
     ],
     tech: ['React', 'JavaScript', 'HTML', 'CSS'],
     repo: 'https://github.com/erikalmeidah/Personal-Portfolio',
@@ -226,7 +234,8 @@ const legacy: RawProject[] = [
     title: 'Asteroids Reloaded (README Contribution)',
     short: 'Documentation contribution to open-source remake.',
     description: [
-      'Created comprehensive README outlining goals, gameplay, and structure for an Asteroids remake.'
+      'Created comprehensive README documentation for an open-source Asteroids game remake.',
+      'Outlined project goals, gameplay mechanics, and technical architecture for contributors.'
     ],
     tech: ['Open-Source'],
     repo: 'https://github.com/erikalmeidah/Asteroids-Reloaded',
@@ -239,7 +248,8 @@ const legacy: RawProject[] = [
     title: 'CASMM',
     short: 'Team-based sandbox save feature implementation.',
     description: [
-      'Collaborative project implementing sandbox save functionality and coordinating merges across teams.'
+      'Collaborative team project implementing sandbox save functionality for an educational coding platform.',
+      'Coordinated code merges and feature integration across multiple development teams.'
     ],
     tech: ['HTML', 'CSS', 'JavaScript'],
     repo: 'https://github.com/erikalmeidah/Sapphire-Project07-3i',
@@ -252,7 +262,8 @@ const legacy: RawProject[] = [
     title: 'YouTube Front-End Clone',
     short: 'Hardcoded responsive YouTube layout clone.',
     description: [
-      'Front-end clone practicing layout, responsive grids, and semantic HTML.'
+      'Front-end clone of YouTube interface practicing responsive layout and grid systems.',
+      'Focuses on semantic HTML structure and CSS layout patterns.'
     ],
     tech: ['HTML', 'CSS'],
     repo: 'https://github.com/erikalmeidah/Ytb-front-end-clone',
@@ -265,7 +276,8 @@ const legacy: RawProject[] = [
     title: 'Game Recommender V1',
     short: 'Earlier platform iteration (JS).',
     description: [
-      'Baseline implementation informing architecture & performance improvements in V2.'
+      'Initial JavaScript implementation of game recommendation system using React.',
+      'Provided baseline architecture and insights for the improved V2 version.'
     ],
     tech: ['JavaScript', 'React'],
     repo: 'https://github.com/erikcompanhone/GameRecommender.git',
@@ -278,7 +290,8 @@ const legacy: RawProject[] = [
     title: 'Rock Paper Scissors',
     short: 'Simple browser game exercise.',
     description: [
-      'Small JavaScript game for practice completed after tutorial.'
+      'Classic rock-paper-scissors game built with vanilla JavaScript for practice.',
+      'Completed as a learning exercise following a tutorial.'
     ],
     tech: ['HTML', 'CSS', 'JavaScript'],
     repo: 'https://github.com/erikalmeidah/rock-paper-scissors',
@@ -291,7 +304,8 @@ const legacy: RawProject[] = [
     title: 'Amazon Front-End Copy',
     short: 'Front-end only Amazon UI clone.',
     description: [
-      'Responsive interface replication focusing on structure & layout patterns.'
+      'Responsive Amazon interface replication focusing on structure and layout patterns.',
+      'Practice project emphasizing CSS grid and flexbox techniques.'
     ],
     tech: ['HTML', 'CSS', 'JavaScript'],
     repo: 'https://github.com/erikalmeidah/javascript-amazon-project',
@@ -304,7 +318,8 @@ const legacy: RawProject[] = [
     title: 'Simple Calculator',
     short: 'Basic operations & UI practice.',
     description: [
-      'Calculator supporting arithmetic, sqrt, percentage, and input validation.'
+      'Calculator application supporting arithmetic operations, square root, and percentage calculations.',
+      'Includes input validation and clean user interface design.'
     ],
     tech: ['HTML', 'CSS', 'JavaScript'],
     repo: 'https://github.com/erikalmeidah/Simple-Calculator',
@@ -317,7 +332,8 @@ const legacy: RawProject[] = [
     title: 'Color Picker App',
     short: 'React color selection utility.',
     description: [
-      'Simple palette exploration and color selection UI.'
+      'Interactive color palette exploration and selection tool built with React.',
+      'Simple UI for choosing and displaying color values.'
     ],
     tech: ['React', 'JavaScript', 'HTML', 'CSS'],
     repo: 'https://github.com/erikalmeidah/ColorPickerApp',
@@ -330,7 +346,8 @@ const legacy: RawProject[] = [
     title: 'Clock App',
     short: 'Time display utility app.',
     description: [
-      'Small clock component for practicing state & intervals.'
+      'Digital clock component for practicing React state management and intervals.',
+      'Displays current time with automatic updates.'
     ],
     tech: ['React', 'JavaScript', 'HTML', 'CSS'],
     repo: 'https://github.com/erikalmeidah/ClockApp',
@@ -343,7 +360,8 @@ const legacy: RawProject[] = [
     title: 'To-Do List',
     short: 'Task management exercise.',
     description: [
-      'Add/edit/delete tasks with simple state handling.'
+      'Basic task management application with add, edit, and delete functionality.',
+      'Practice project for React state handling and CRUD operations.'
     ],
     tech: ['React', 'JavaScript', 'HTML', 'CSS'],
     repo: 'https://github.com/erikalmeidah/ToDoList',
@@ -356,7 +374,8 @@ const legacy: RawProject[] = [
     title: 'Stopwatch',
     short: 'Stopwatch state management practice.',
     description: [
-      'Timing utility focusing on component lifecycle behaviors.'
+      'Timing utility application focusing on React component lifecycle and state management.',
+      'Features start, stop, and reset functionality.'
     ],
     tech: ['React', 'JavaScript', 'HTML', 'CSS'],
     repo: 'https://github.com/erikalmeidah/StopWatchApp',
