@@ -65,6 +65,7 @@ const legacy: RawProject[] = [
     ],
     tech: ['React', 'Leaflet', 'Recharts', 'TypeScript', 'Node.js', 'Express', 'MySQL', 'SQL', 'Python'],
     repo: 'https://github.com/erikalmeidah/FloridaPanther',
+    live: 'https://panther.erikcompanhone.com',
     image: 'floridaPantherDataAnalyzer.png',
     category: 'featured',
     featuredRank: 2,
