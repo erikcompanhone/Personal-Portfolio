@@ -48,6 +48,7 @@ const legacy: RawProject[] = [
     ],
     tech: ['React', 'Vite', 'TypeScript', 'Node.js', 'Express', 'Docker', 'RESTful API\'s', 'SQL'],
     repo: 'https://github.com/erikalmeidah/GameRecommenderV2',
+    live: 'https://gamerecommenderv2.erikcompanhone.com',
     image: 'gamerecv2.jpg',
     category: 'featured',
     featuredRank: 1,

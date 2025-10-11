@@ -1,7 +1,6 @@
 deploy panther and update links
-deploy steam and update links
-new headshot
 
+new headshot
 update new headshot in other places
 
 update readme on project repos
