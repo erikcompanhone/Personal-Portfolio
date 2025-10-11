@@ -43,10 +43,10 @@ const legacy: RawProject[] = [
     title: 'Game Recommender V2',
     short: 'Full-stack game discovery & tracking platform.',
     description: [
-      'Full-stack web application for discovering and tracking video games with an intuitive interface.',
-      'Built with React, Vite, TypeScript, and Node/Express backend using SQLite, integrating Steam & RAWG APIs.'
+      'Production-ready web application for discovering and tracking video games with personalized recommendations.',
+      'Serverless architecture on Vercel with React, Vite, TypeScript frontend and Node.js API integrating Steam & RAWG APIs.'
     ],
-    tech: ['React', 'Vite', 'TypeScript', 'Node.js', 'Express', 'Docker', 'RESTful API\'s', 'SQL'],
+    tech: ['React', 'Vite', 'TypeScript', 'Node.js', 'Vercel', 'Serverless Functions', 'RESTful API\'s', 'Steam API', 'RAWG API'],
     repo: 'https://github.com/erikalmeidah/GameRecommenderV2',
     live: 'https://gamerecommenderv2.erikcompanhone.com',
     image: 'gamerecv2.jpg',
