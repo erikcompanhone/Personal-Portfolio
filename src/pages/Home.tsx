@@ -69,25 +69,17 @@ const Home: React.FC = () => {
         <div className="space-y-4">
           <p className="text-xl font-semibold">Erik Companhone</p>
           <p>
-            A <span className="font-semibold">software engineer</span> with a deep love for technology and coding. I recently graduated from the
-            <span className="font-semibold"> University of Florida</span> with a degree in <span className="font-semibold">Computer Science</span>, where I maintained a
-            <span className="font-semibold"> 3.58 GPA</span>. As a <span className="font-semibold">first-generation student</span>, completing my education was a huge milestone,
-            and it's fueled my drive to dive into the tech world and make an impact.
+            I'm currently a <span className="font-semibold">full-stack developer</span> at
+            <span className="font-semibold"> MyWayv</span>, where I contribute to exciting projects and continuously learn from a talented team. If you're interested in collaborating or have any opportunities, feel free to reach out—I'd love to connect!
           </p>
           <p>
-            During my studies, I worked on numerous projects that gave me <span className="font-semibold">hands-on experience</span> with various
-            <span className="font-semibold"> programming languages, frameworks, and technologies</span>. Learning new tools and solving complex
-            problems energizes me, and I'm excited to bring this passion to my professional career.
+            I graduated from the <span className="font-semibold">University of Florida</span> in Spring 2024 with a degree in <span className="font-semibold">Computer Science</span>, maintaining a <span className="font-semibold">3.58 GPA</span>. As a <span className="font-semibold">first-generation student</span>, completing my education was a huge milestone that fueled my drive to make an impact in tech.
           </p>
           <p>
-            This portfolio showcases some of the <span className="font-semibold">key projects</span> I've worked on, highlighting the
-            <span className="font-semibold"> skills</span> I've developed along my education. I'm always eager to <span className="font-semibold">expand my knowledge</span>,
-            whether it's by diving deeper into familiar technologies or exploring new ones.
+            Throughout my studies, I gained <span className="font-semibold">hands-on experience</span> with a variety of <span className="font-semibold">programming languages, frameworks, and technologies</span>. I love learning new tools and solving complex problems, and I bring this passion to my professional work every day.
           </p>
           <p>
-            I'm currently working as a <span className="font-semibold">full-stack developer</span> contributing and learning from others at
-            <span className="font-semibold"> MyWayv</span>. If you're interested in collaborating or have any opportunities,
-            feel free to reach out—I'd love to connect!
+            This portfolio highlights some of the <span className="font-semibold">key projects</span> I've worked on and the <span className="font-semibold">skills</span> I've developed along the way. I'm always eager to <span className="font-semibold">expand my knowledge</span>, whether by diving deeper into familiar technologies or exploring new ones.
           </p>
         </div>
       </section>
