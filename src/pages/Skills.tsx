@@ -25,7 +25,8 @@ const Skills: React.FC = () => {
     { name: 'Lua' },
     { name: 'Java' },
     { name: 'C#' },
-    { name: 'Solidity' }
+    { name: 'Solidity' },
+    { name: 'Bash' }
   ];
 
   const toolsTech = [
