@@ -18,6 +18,8 @@ const Skills: React.FC = () => {
   const backend = [
     { name: 'C++' },
     { name: 'Python' },
+    { name: 'FastAPI' },
+    { name: 'Pydantic' },
     { name: 'Node' },
     { name: 'Express' },
     { name: "RESTful API's" },
@@ -34,6 +36,7 @@ const Skills: React.FC = () => {
     { name: 'Vercel' },
     { name: 'Jest' },
     { name: 'Docker' },
+    { name: 'venv' },
     { name: 'Unity' },
     { name: 'Web3.js' },
     { name: 'MATLAB' }
