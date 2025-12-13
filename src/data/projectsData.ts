@@ -145,7 +145,7 @@ const legacy: RawProject[] = [
     repo: 'https://github.com/erikalmeidah/Threads-Clone',
     image: 'threadsclone.png',
     category: 'mobile',
-    importance: 4
+    importance: 4.5
   },
   {
     rawTitle: 'Speech to Text / Text to Speech Demos',
@@ -384,6 +384,21 @@ const legacy: RawProject[] = [
     image: 'stopwatch.jpg',
     category: 'web',
     importance: 3
+  },
+  {
+    rawTitle: 'Tagging API',
+    title: 'Tagging API',
+    short: 'FastAPI-based speech & image tagging system.',
+    description: [
+      'FastAPI backend for analyzing and tagging speech transcripts and images using keyword matching and Google Vision API.',
+      'Features Pydantic models for data validation, in-memory artifact storage with unique IDs, and comprehensive API endpoints for speech/image analysis and tag retrieval.'
+    ],
+    tech: ['FastAPI', 'Pydantic', 'Python', 'Google Vision API', 'Bash'],
+    repo: 'https://github.com/erikcompanhone/tagging_api_pydantic_demo',
+    image: 'tagging-api.png',
+    category: 'web',
+    status: 'live',
+    importance: 4.8
   }
 ];
 
@@ -400,7 +415,7 @@ export const featured = projects
 // Custom priority: ensure these four appear first (in the given order) when listing non-featured projects.
 const priorityOrder = [
   'Simple Meditation App',
-  'Threads Clone',
+  'Tagging API',
   'Minetest Project',
   'Crowdfunding DApp'
 ];
