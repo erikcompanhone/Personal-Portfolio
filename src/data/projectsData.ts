@@ -397,8 +397,21 @@ const legacy: RawProject[] = [
     repo: 'https://github.com/erikcompanhone/tagging_api_pydantic_demo',
     image: 'tagging-api.png',
     category: 'web',
-    status: 'live',
     importance: 4.8
+  },
+  {
+    rawTitle: 'Mood Detection',
+    title: 'Mood Detection',
+    short: 'AI-powered mood analysis tool that transcribes speech and detects emotional tone in real-time.',
+    description: [
+      'Web application that captures microphone audio, transcribes it using Google Cloud Speech-to-Text, and analyzes emotional sentiment with Gemini LLM.',
+      'Features a minimal interface with seamless integration between browser audio APIs, cloud services, and NoSQL database. Containerized with Docker and includes comprehensive testing.'
+    ],
+    tech: ['Python', 'FastAPI', 'TypeScript', 'Google Cloud Speech-to-Text', 'Gemini LLM', 'Cloud Firestore', 'MediaRecorder API', 'Pydantic', 'Docker', 'Pytest', 'Ruff'],
+    repo: 'https://github.com/erikcompanhone/MoodDetection.git',
+    image: 'mood-detection.png',
+    category: 'web',
+    importance: 5
   }
 ];
 
