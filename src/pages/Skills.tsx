@@ -39,7 +39,12 @@ const Skills: React.FC = () => {
     { name: 'venv' },
     { name: 'Unity' },
     { name: 'Web3.js' },
-    { name: 'MATLAB' }
+    { name: 'MATLAB' },
+    { name: 'Google Cloud Speech-to-Text' },
+    { name: 'Cloud Firestore' },
+    { name: 'Gemini LLM' },
+    { name: 'Pytest' },
+    { name: 'Ruff' }
   ];
 
   const languages = [

@@ -10,7 +10,7 @@ const Projects: React.FC = () => {
     title: p.title,
     description: p.description?.join(' ') || p.short,
     image: p.image ? `/assets/projects/${p.image}` : '/assets/projects/placeholder.png',
-    tags: p.tech.slice(0,4),
+    tags: p.tech,
     liveUrl: p.live,
     githubUrl: p.repo
   }));
@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
     title: p.title,
     description: p.description?.join(' ') || p.short,
     image: p.image ? `/assets/projects/${p.image}` : '/assets/projects/placeholder.png',
-    tags: p.tech.slice(0,4),
+    tags: p.tech,
     liveUrl: p.live,
     githubUrl: p.repo
   }));
