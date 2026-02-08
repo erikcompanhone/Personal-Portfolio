@@ -412,6 +412,21 @@ const legacy: RawProject[] = [
     image: 'mood-detection.png',
     category: 'web',
     importance: 5
+  },
+  {
+    rawTitle: 'OD Pedal',
+    title: 'OD Pedal',
+    short: 'Professional VST3 guitar overdrive pedal plugin built with JUCE.',
+    description: [
+      'Professional-quality VST3 guitar overdrive pedal plugin built with JUCE 8.x and CMake. Features MIDI automation support, real-time audio processing, and modular DSP design.',
+      'Production-ready structure with clean separation of concerns. Core DSP algorithm is decoupled from JUCE for reuse in future pedal chain projects. Includes automation integration and zero allocations in audio thread.'
+    ],
+    tech: ['C++', 'JUCE', 'CMake', 'VST3'],
+    repo: 'https://github.com/erikcompanhone/od_pedal.git',
+    image: 'od-pedal.png',
+    category: 'other',
+    status: 'live',
+    importance: 4.5
   }
 ];
 

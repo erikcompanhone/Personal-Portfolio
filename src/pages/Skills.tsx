@@ -44,7 +44,9 @@ const Skills: React.FC = () => {
     { name: 'Cloud Firestore' },
     { name: 'Gemini LLM' },
     { name: 'Pytest' },
-    { name: 'Ruff' }
+    { name: 'Ruff' },
+    { name: 'JUCE' },
+    { name: 'ElevenLabs' }
   ];
 
   const languages = [
