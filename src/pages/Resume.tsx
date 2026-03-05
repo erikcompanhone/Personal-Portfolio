@@ -24,7 +24,7 @@ const Resume: React.FC = () => {
           <PrinterIcon size={18} /> Print / PDF
         </button>
       </div>
-      <div className="text-xs text-muted mb-4 print:mb-2 italic print:text-black">Updated Oct 2025</div>
+      <div className="text-xs text-muted mb-4 print:mb-2 italic print:text-black">Updated Mar 2026</div>
   <div className="md:hidden mb-4 print:hidden" />
 
       {/* Print styles (scoped) */}
