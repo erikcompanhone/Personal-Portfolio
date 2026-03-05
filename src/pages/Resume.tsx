@@ -103,73 +103,79 @@ const Resume: React.FC = () => {
         <section id="print-summary" className="space-y-3 print-condense" aria-labelledby="summary-heading">
           <h3 id="summary-heading" className="text-xl font-semibold border-b border-secondary pb-2">Summary</h3>
           <p className="text-sm leading-relaxed text-muted print:text-black print:leading-snug print:text-[0.63rem] print:[line-height:0.95rem]">
-            <span className="font-medium text-white print:text-black">Full-stack / mobile engineer</span> focused on <span className="text-text print:text-black">AI-assisted, music-based emotional wellness experiences.</span> Blend of academic research (engine migration & systems refactor) and production delivery (React / React Native + Supabase + Vercel). <span className="text-white font-medium print:text-black print:font-bold">Trilingual</span> (English / Portuguese / Spanish) with a track record of progressive responsibility in collaborative, iterative teams.
+            <span className="font-medium text-white print:text-black">Full-stack engineer</span>{" "}
+            building <span className="text-text print:text-black">AI-driven interactive systems and scalable cloud services.</span>{" "}
+            Experience developing <span className="font-medium text-white print:text-black">real-time voice AI agents</span>{" "}
+            with the Gemini Live API and deploying low-latency platforms on{" "}
+            <span className="text-white font-medium print:text-black print:font-bold">Google Cloud Platform.</span>{" "}
+            <span className="text-white font-medium print:text-black print:font-bold">Trilingual</span>{" "}
+            (English / Portuguese / Spanish).
           </p>
         </section>
 
-  <section id="print-skills" className="space-y-4 print-condense" aria-labelledby="skills-heading">
+        <section id="print-skills" className="space-y-4 print-condense" aria-labelledby="skills-heading">
           <h3 id="skills-heading" className="text-xl font-semibold border-b border-secondary pb-2">Skills</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-6 text-sm">
             <div>
               <h4 className="font-semibold mb-1">Programming</h4>
-              <p className="text-muted leading-snug">C++, Python, JavaScript, TypeScript, Java, Lua, SQL, C#</p>
+              <p className="text-muted leading-snug">C++, Python, TypeScript, JavaScript, Java, SQL, C#</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-1">Frontend / Mobile</h4>
-              <p className="text-muted leading-snug">React, React Native, Tailwind CSS, HTML, CSS</p>
+              <h4 className="font-semibold mb-1">Frontend</h4>
+              <p className="text-muted leading-snug">React, Tailwind CSS, HTML, CSS</p>
             </div>
             <div>
               <h4 className="font-semibold mb-1">Backend / APIs</h4>
-              <p className="text-muted leading-snug">Node.js, Express, RESTful APIs, Supabase</p>
+              <p className="text-muted leading-snug">Node.js, Express, FastAPI, Pydantic, REST APIs</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-1">Platform / DevOps</h4>
-              <p className="text-muted leading-snug">Vercel, Docker, Git</p>
+              <h4 className="font-semibold mb-1">Cloud / Infrastructure</h4>
+              <p className="text-muted leading-snug">Google Cloud Platform (GCP), Terraform, Docker</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-1">Other / Domain</h4>
-              <p className="text-muted leading-snug">Unity, Web3, MATLAB, Android Studio</p>
+              <h4 className="font-semibold mb-1">DevOps / Tooling</h4>
+              <p className="text-muted leading-snug">Git, GitHub Actions, Vercel</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-1">Soft Skills</h4>
+              <h4 className="font-semibold mb-1">Collaboration</h4>
               <p className="text-muted leading-snug">Leadership, Cross-team Collaboration, Multilingual (EN/PT/ES)</p>
             </div>
           </div>
         </section>
 
-  <section id="print-experience" className="space-y-4 print-condense" aria-labelledby="experience-heading">
+        <section id="print-experience" className="space-y-4 print-condense" aria-labelledby="experience-heading">
           <h3 className="text-xl font-semibold border-b border-secondary pb-2">Experience</h3>
-          <div>
-            <div className="flex justify-between items-start gap-4 print:gap-2">
-              <h4 className="font-semibold flex-1">MyWayv - Full-Stack Developer</h4>
-              <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">05/2025 – Present</span>
+            <div>
+              <div className="flex justify-between items-start gap-4 print:gap-2">
+                <h4 className="font-semibold flex-1">MyWayv - Full-Stack Developer</h4>
+                <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">05/2025 – Present</span>
+              </div>
+              <p className="text-muted">Boca Raton, FL.</p>
+              <ul className="list-disc list-inside mt-2 text-sm space-y-1">
+                <li>Building an AI-driven, music-based emotional wellness platform delivering personalized user experiences.</li>
+                <li>Implementing real-time voice-to-voice AI agents using the Gemini Live API to enable conversational user interactions.</li>
+                <li>Designing scalable backend services deployed on Google Cloud Platform (GCP) to support low-latency AI workloads.</li>
+                <li>Developing performant frontend interfaces using JavaScript and Vite with a focus on responsive UX and fast iteration.</li>
+                <li className="italic text-muted">Tech: JavaScript, Vite, Gemini Live API, Google Cloud Platform.</li>
+              </ul>
             </div>
-            <p className="text-muted">Boca Raton, FL.</p>
-            <ul className="list-disc list-inside mt-2 text-sm space-y-1">
-              <li>Building an AI-driven, music-based emotional wellness platform delivering personalized user experiences.</li>
-              <li>Developing reusable TypeScript / React Native interface components with attention to performance & accessibility.</li>
-              <li>Accelerating iteration cycles via Vercel preview environments and close product/design collaboration.</li>
-              <li>Integrating Supabase-backed APIs and refining data flows for secure, low-latency session interactions.</li>
-              <li className="italic text-muted">Tech: TypeScript, React Native, Supabase, Vercel.</li>
-            </ul>
-          </div>
-          <div>
-            <div className="flex justify-between items-start gap-4 print:gap-2">
-              <h4 className="font-semibold flex-1">MineTest Project - Undergraduate Research / Senior Project</h4>
-              <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">01/2023 – 05/2024</span>
-            </div>
-            <p className="text-muted">University of Florida - Gainesville, FL.</p>
-            <ul className="list-disc list-inside mt-2 text-sm space-y-1">
-              <li>Progressed from junior contributor to team lead over 3 semesters driving Lua → C++ engine migration.</li>
-              <li>Coordinated sprint-style meetings to surface blockers and maintain delivery momentum.</li>
-              <li>Owned repository governance: code review standards, merge strategy, and branch hygiene.</li>
-              <li>Directed senior project planning and task allocation to align technical scope with academic milestones.</li>
-              <li className="italic text-muted">Tech: C++, Lua, Git, Engine Tooling.</li>
-            </ul>
+            <div>
+              <div className="flex justify-between items-start gap-4 print:gap-2">
+                <h4 className="font-semibold flex-1">MineTest Project - Undergraduate Research / Senior Project</h4>
+                <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">01/2023 – 05/2024</span>
+              </div>
+              <p className="text-muted">University of Florida - Gainesville, FL.</p>
+              <ul className="list-disc list-inside mt-2 text-sm space-y-1">
+                <li>Progressed from junior contributor to team lead over 3 semesters driving Lua → C++ engine migration.</li>
+                <li>Coordinated sprint-style meetings to surface blockers and maintain delivery momentum.</li>
+                <li>Owned repository governance: code review standards, merge strategy, and branch hygiene.</li>
+                <li>Directed senior project planning and task allocation to align technical scope with academic milestones.</li>
+                <li className="italic text-muted">Tech: C++, Lua, Git, Engine Tooling.</li>
+              </ul>
           </div>
         </section>
 
-  <section id="print-education" className="space-y-4 print-condense" aria-labelledby="education-heading">
+        <section id="print-education" className="space-y-4 print-condense" aria-labelledby="education-heading">
           <h3 id="education-heading" className="text-xl font-semibold border-b border-secondary pb-2">Education</h3>
           <div>
             <div className="flex justify-between items-start gap-4 print:gap-2">
