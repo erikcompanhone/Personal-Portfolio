@@ -46,7 +46,9 @@ const Skills: React.FC = () => {
     { name: 'Pytest' },
     { name: 'Ruff' },
     { name: 'JUCE' },
-    { name: 'ElevenLabs' }
+    { name: 'ElevenLabs' },
+    { name: 'Terraform' },
+    { name: 'Git' },
   ];
 
   const languages = [
