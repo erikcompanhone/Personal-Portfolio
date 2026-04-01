@@ -69,8 +69,7 @@ const Home: React.FC = () => {
         <div className="space-y-4">
           <p className="text-xl font-semibold">Erik Companhone</p>
           <p>
-            I'm currently a <span className="font-semibold">full-stack developer</span> at
-            <span className="font-semibold"> MyWayv</span>, where I contribute to exciting projects and continuously learn from a talented team. If you're interested in collaborating or have any opportunities, feel free to reach out—I'd love to connect!
+            I'm a <span className="font-semibold">software developer</span> currently open to new opportunities. Most recently, I worked as a <span className="font-semibold">full-stack developer</span> at <span className="font-semibold">MyWayv</span>, where I contributed to exciting projects and continuously learned from a talented team. If you have any openings or are interested in collaborating, feel free to reach out, I'd love to connect!
           </p>
           <p>
             I graduated from the <span className="font-semibold">University of Florida</span> in Spring 2024 with a degree in <span className="font-semibold">Computer Science</span>, maintaining a <span className="font-semibold">3.58 GPA</span>. As a <span className="font-semibold">first-generation student</span>, completing my education was a huge milestone that fueled my drive to make an impact in tech.

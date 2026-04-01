@@ -6,14 +6,14 @@ const Experience: React.FC = () => {
     {
       title: 'Full-Stack Developer',
       organization: 'MyWayv – Boca Raton, FL',
-      period: '05/2025 – Present',
+      period: '05/2025 – 04/2026',
   logo: '/assets/experience/mywayv.png',
       description: [
-        'Building an AI-driven, music-based emotional wellness platform delivering personalized user experiences.',
-        'Developing reusable TypeScript / React Native interface components with attention to performance & accessibility.',
-        'Accelerating iteration cycles via Vercel preview environments and close product/design collaboration.',
-        'Integrating Supabase-backed APIs and refining data flows for secure, low-latency session interactions.',
-        'Tech: TypeScript, React Native, Supabase, Vercel.'
+        'Built an AI-driven, music-based emotional wellness platform delivering personalized user experiences.',
+        'Developed reusable TypeScript / React Native interface components with attention to performance & accessibility.',
+        'Accelerated iteration cycles via Vercel preview environments and close product/design collaboration.',
+        'Integrated Supabase-backed APIs and refined data flows for secure, low-latency session interactions.',
+        'Tech: TypeScript, React Native, Supabase, Vercel, GCP, Google Gemini Live API, Voice Agents.'
       ]
     },
     {

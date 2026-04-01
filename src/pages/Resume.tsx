@@ -24,7 +24,7 @@ const Resume: React.FC = () => {
           <PrinterIcon size={18} /> Print / PDF
         </button>
       </div>
-      <div className="text-xs text-muted mb-4 print:mb-2 italic print:text-black">Updated Mar 2026</div>
+      <div className="text-xs text-muted mb-4 print:mb-2 italic print:text-black">Updated Apr 2026</div>
   <div className="md:hidden mb-4 print:hidden" />
 
       {/* Print styles (scoped) */}
@@ -148,14 +148,14 @@ const Resume: React.FC = () => {
             <div>
               <div className="flex justify-between items-start gap-4 print:gap-2">
                 <h4 className="font-semibold flex-1">MyWayv - Full-Stack Developer</h4>
-                <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">05/2025 – Present</span>
+                <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">05/2025 – 04/2026</span>
               </div>
               <p className="text-muted">Boca Raton, FL.</p>
               <ul className="list-disc list-inside mt-2 text-sm space-y-1">
-                <li>Building an AI-driven, music-based emotional wellness platform delivering personalized user experiences.</li>
-                <li>Implementing real-time voice-to-voice AI agents using the Gemini Live API to enable conversational user interactions.</li>
-                <li>Designing scalable backend services deployed on Google Cloud Platform (GCP) to support low-latency AI workloads.</li>
-                <li>Developing performant frontend interfaces using JavaScript and Vite with a focus on responsive UX and fast iteration.</li>
+                <li>Built an AI-driven, music-based emotional wellness platform delivering personalized user experiences.</li>
+                <li>Implemented real-time voice-to-voice AI agents using the Gemini Live API to enable conversational user interactions.</li>
+                <li>Designed scalable backend services deployed on Google Cloud Platform (GCP) to support low-latency AI workloads.</li>
+                <li>Developed performant frontend interfaces using JavaScript and Vite with a focus on responsive UX and fast iteration.</li>
                 <li className="italic text-muted">Tech: JavaScript, Vite, Gemini Live API, Google Cloud Platform.</li>
               </ul>
             </div>
