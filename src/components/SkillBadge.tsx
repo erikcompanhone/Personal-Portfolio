@@ -14,6 +14,7 @@ const skillSlugOverrides: Record<string, string> = {
   'React Native': 'react-native',
   'Web3.js': 'web3',
   'Android Studio': 'android',
+  'Vercel AI SDK': 'vercel',
   Node: 'nodejs',
   'Node.js': 'nodejs'
 };

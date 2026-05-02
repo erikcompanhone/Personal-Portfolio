@@ -414,6 +414,20 @@ const legacy: RawProject[] = [
     importance: 5
   },
   {
+    rawTitle: 'Gramps',
+    title: 'Gramps — AI Writing Platform',
+    short: 'Private book-writing platform with AI revision assistant, built for a non-technical user.',
+    description: [
+      'Full-stack writing application with a rich text editor, chapter management, plot notes, and export to PDF and DOCX. Built around a strict AI assistant that reviews text for consistency and grammar — but refuses to write the story for the author.',
+      'Features per-model spending caps with atomic cost tracking, persistent chat history, real-time web search grounding across three AI providers (Gemini, OpenAI, Anthropic), and row-level security scoped per user.'
+    ],
+    tech: ['Next.js', 'React', 'TypeScript', 'Supabase', 'Vercel AI SDK', 'Gemini', 'OpenAI', 'Anthropic', 'Tailwind CSS'],
+    repo: 'https://github.com/erikcompanhone/gramps',
+    image: 'gramps.png',
+    category: 'web',
+    importance: 5
+  },
+  {
     rawTitle: 'OD Pedal',
     title: 'OD Pedal',
     short: 'Professional VST3 guitar overdrive pedal plugin built with JUCE.',

@@ -7,6 +7,7 @@ const Skills: React.FC = () => {
   const frontend = [
     { name: 'JavaScript' },
     { name: 'React' },
+    { name: 'Next.js' },
     { name: 'React Native' },
     { name: 'TypeScript' },
     { name: 'Expo' },
@@ -34,6 +35,10 @@ const Skills: React.FC = () => {
   const toolsTech = [
     { name: 'Android Studio' },
     { name: 'Vercel' },
+    { name: 'Vercel AI SDK' },
+    { name: 'Supabase' },
+    { name: 'OpenAI' },
+    { name: 'Anthropic' },
     { name: 'Jest' },
     { name: 'Docker' },
     { name: 'venv' },
