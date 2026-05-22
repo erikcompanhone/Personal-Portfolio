@@ -27,21 +27,11 @@ const BadgeCard: React.FC<BadgeCardProps> = ({ title, organization, period, desc
             ))}
           </ul>
           {context && (
-            <p className="text-sm text-muted mb-4">{context}</p>
-          )}
-          {verifyUrl && (
-            <a
-              href={verifyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 rounded-md bg-accent/20 border border-accent/40 text-accent-light hover:bg-accent/30 hover:border-accent/60 font-medium transition-colors"
-            >
-              Verify on Credly
-            </a>
+            <p className="text-muted">{context}</p>
           )}
         </div>
         {image && (
-          <div className="flex justify-center md:justify-end flex-shrink-0">
+          <div className="flex flex-col items-center flex-shrink-0 gap-4">
             <img
               src={image}
               alt={`${title} badge`}
@@ -49,6 +39,16 @@ const BadgeCard: React.FC<BadgeCardProps> = ({ title, organization, period, desc
               loading="lazy"
               decoding="async"
             />
+            {verifyUrl && (
+              <a
+                href={verifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-4 py-2 bg-transparent border border-accent text-accent rounded-md hover:bg-accent hover:bg-opacity-10 transition-colors"
+              >
+                Verify on Credly
+              </a>
+            )}
           </div>
         )}
       </div>
