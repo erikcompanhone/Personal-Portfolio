@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookIcon, HeartIcon, MusicIcon, GlobeIcon, UsersIcon } from 'lucide-react';
+import { BookIcon, HeartIcon, MusicIcon, GlobeIcon, UsersIcon, ActivityIcon } from 'lucide-react';
 
 const Personal: React.FC = () => {
   const hobbies = [
@@ -31,9 +31,9 @@ const Personal: React.FC = () => {
       icon: <GlobeIcon size={24} className="text-accent" />
     },
     {
-      name: 'Skateboarding',
-      description: 'Practicing balance, persistence, and progression outdoors',
-      icon: <GlobeIcon size={24} className="text-accent" />
+      name: 'Exercising',
+      description: 'Skateboarding, running, and going to the gym: staying active across different disciplines',
+      icon: <ActivityIcon size={24} className="text-accent" />
     },
     
   ];
