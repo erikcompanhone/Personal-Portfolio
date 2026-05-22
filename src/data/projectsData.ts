@@ -8,6 +8,7 @@ export interface Project {
   description: string[]; // paragraph blocks
   tech: string[];
   repo?: string;
+  privateRepo?: boolean;
   live?: string;
   category: 'featured' | 'data' | 'web' | 'mobile' | 'web3' | 'game' | 'open-source' | 'other';
   featuredRank?: number; // 1..n for current highlights
@@ -28,6 +29,7 @@ interface RawProject {
   description: string[];
   tech: string[];
   repo?: string;
+  privateRepo?: boolean;
   live?: string;
   category?: Project['category'];
   featuredRank?: number;
@@ -56,6 +58,24 @@ const legacy: RawProject[] = [
     importance: 5
   },
   {
+    rawTitle: 'AquaLux Expeditions',
+    title: 'AquaLux Expeditions',
+    short: 'Marketing platform for a premium guided paddle company in South Florida.',
+    description: [
+      'Official marketing and web platform for AquaLux Expeditions, a premium guided paddling company in South Florida.',
+      'Features smooth animations with Framer Motion, contact form with rate-limited submissions via Supabase and Resend, and full SEO setup including dynamic OpenGraph, sitemap, and robots generation.'
+    ],
+    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Supabase', 'Resend', 'Vercel'],
+    repo: 'https://github.com/nortonsan2003/aqualux-expeditions',
+    privateRepo: true,
+    live: 'https://www.aqualux-expeditions.com/',
+    image: 'aqualux.png',
+    category: 'featured',
+    featuredRank: 2,
+    status: 'live',
+    importance: 4.5
+  },
+  {
     rawTitle: 'Florida Panther Data Analyzer',
     title: 'Florida Panther Data Analyzer',
     short: 'Interactive conservation data & mapping tool.',
@@ -65,12 +85,9 @@ const legacy: RawProject[] = [
     ],
     tech: ['React', 'Leaflet', 'Recharts', 'TypeScript', 'Node.js', 'Express', 'MySQL', 'SQL', 'Python'],
     repo: 'https://github.com/erikalmeidah/FloridaPanther',
-    live: 'https://panther.erikcompanhone.com',
     image: 'floridaPantherDataAnalyzer.png',
-    category: 'featured',
-    featuredRank: 2,
-    status: 'live',
-    importance: 4
+    category: 'data',
+    importance: 4.5
   },
   {
     rawTitle: 'Pokedex App',

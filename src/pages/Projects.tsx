@@ -12,7 +12,8 @@ const Projects: React.FC = () => {
     image: p.image ? `/assets/projects/${p.image}` : '/assets/projects/placeholder.png',
     tags: p.tech,
     liveUrl: p.live,
-    githubUrl: p.repo
+    githubUrl: p.repo,
+    privateRepo: p.privateRepo
   }));
 
   const allOtherCards: ProjectProps[] = nonFeatured.map(p => ({
