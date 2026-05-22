@@ -24,7 +24,7 @@ const Resume: React.FC = () => {
           <PrinterIcon size={18} /> Print / PDF
         </button>
       </div>
-      <div className="text-xs text-muted mb-4 print:mb-2 italic print:text-black">Updated Apr 2026</div>
+      <div className="text-xs text-muted mb-4 print:mb-2 italic print:text-black">Updated May 2026</div>
   <div className="md:hidden mb-4 print:hidden" />
 
       {/* Print styles (scoped) */}
@@ -161,16 +161,14 @@ const Resume: React.FC = () => {
             </div>
             <div>
               <div className="flex justify-between items-start gap-4 print:gap-2">
-                <h4 className="font-semibold flex-1">MineTest Project - Undergraduate Research / Senior Project</h4>
-                <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">01/2023 – 05/2024</span>
+                <h4 className="font-semibold flex-1">Collection Ventures - Agentic Software Engineer</h4>
+                <span className="text-muted whitespace-nowrap text-right print:text-[0.6rem]">05/2026 – Present</span>
               </div>
-              <p className="text-muted">University of Florida - Gainesville, FL.</p>
+              <p className="text-muted">Remote.</p>
               <ul className="list-disc list-inside mt-2 text-sm space-y-1">
-                <li>Progressed from junior contributor to team lead over 3 semesters driving Lua → C++ engine migration.</li>
-                <li>Coordinated sprint-style meetings to surface blockers and maintain delivery momentum.</li>
-                <li>Owned repository governance: code review standards, merge strategy, and branch hygiene.</li>
-                <li>Directed senior project planning and task allocation to align technical scope with academic milestones.</li>
-                <li className="italic text-muted">Tech: C++, Lua, Git, Engine Tooling.</li>
+                <li>Founding member contributing to early-stage startup development.</li>
+                <li>Building humanitarian agentic AI software on Google Cloud infrastructure.</li>
+                <li className="italic text-muted">Tech: Terraform, Google Cloud, Agentic AI Development.</li>
               </ul>
           </div>
         </section>
