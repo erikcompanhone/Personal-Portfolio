@@ -2,7 +2,15 @@ import React from 'react';
 import TimelineCard from '../components/TimelineCard';
 
 const Experience: React.FC = () => {
-  const experiences = [
+  const experiences: Array<{
+    title: string;
+    subtitle?: string;
+    organization: string;
+    period: string;
+    logo?: string;
+    logoFallback?: string;
+    description: string[];
+  }> = [
     {
       title: 'Agentic Software Engineer',
       organization: 'Collection Ventures – Remote',
