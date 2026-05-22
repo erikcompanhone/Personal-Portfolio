@@ -1,5 +1,6 @@
 import React from 'react';
 import TimelineCard from '../components/TimelineCard';
+import BadgeCard from '../components/BadgeCard';
 
 const Education: React.FC = () => {
   const education = [
@@ -25,7 +26,24 @@ const Education: React.FC = () => {
     }
   ];
 
-  // Certifications intentionally omitted for now (expired). If reintroduced, mark as (Expired) or place under a separate \"Past Certifications\" heading to avoid confusion.
+  const certifications = [
+    {
+      title: 'Deploy Multi-Agent Architectures',
+      organization: 'Google Cloud Skill Badge',
+      period: 'Earned May 2026',
+      description: [
+        'Build multi-agent systems with the Agent Development Kit (ADK).',
+        'Connect agents using the Agent-to-Agent (A2A) protocol.',
+        'Integrate external tools via the Model Context Protocol (MCP).',
+        'Deploy a complete multi-agent solution to Agent Engine.'
+      ],
+      context: 'Final badge of the Agentic AI on Google Cloud learning path, which guides learners through building and deploying intelligent multi-agent systems using Google Cloud technologies, covering Gemini Enterprise, ADK, enterprise database integration, and secure agent architectures.',
+      image: '/assets/education/certs_and_badges/deploy_multi_agent_architectures.png',
+      verifyUrl: 'https://www.credly.com/badges/99a5f974-5f27-4092-90d5-bb761d03c745'
+    }
+  ];
+
+  // Expired certifications intentionally omitted. If reintroduced, mark as (Expired) under a separate "Past Certifications" heading.
 
   return (
     <div>
@@ -46,7 +64,24 @@ const Education: React.FC = () => {
           ))}
         </div>
       </section>
-      {/* Certifications section intentionally removed. If re-added, create a `pastCertifications` array with explicit (Expired) tags. */}
+
+      <section>
+        <h2 className="text-2xl font-bold mb-6 border-b border-secondary pb-2">Certifications & Badges</h2>
+        <div className="space-y-6">
+          {certifications.map((item, index) => (
+            <BadgeCard
+              key={index}
+              title={item.title}
+              organization={item.organization}
+              period={item.period}
+              description={item.description}
+              context={item.context}
+              image={item.image}
+              verifyUrl={item.verifyUrl}
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 };

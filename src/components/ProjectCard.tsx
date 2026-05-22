@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLinkIcon, GithubIcon } from 'lucide-react';
+import { ExternalLinkIcon, GithubIcon, LockIcon } from 'lucide-react';
 
 export interface ProjectProps {
   title: string;
@@ -9,7 +9,8 @@ export interface ProjectProps {
   liveUrl?: string;
   githubUrl?: string;
   featured?: boolean;
-  hideLive?: boolean; // when true, suppress live button but preserve layout spacing
+  hideLive?: boolean;
+  privateRepo?: boolean;
 }
 
 const ProjectCard: React.FC<ProjectProps> = ({
@@ -20,7 +21,8 @@ const ProjectCard: React.FC<ProjectProps> = ({
   liveUrl,
   githubUrl,
   featured = false,
-  hideLive = false
+  hideLive = false,
+  privateRepo = false
 }: ProjectProps) => {
   return (
     <div className="bg-primary rounded-lg overflow-hidden shadow-lg transition-transform hover:translate-y-[-5px] duration-300 flex flex-col h-full">
@@ -58,7 +60,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
               <ExternalLinkIcon size={16} /> Live
             </a>
           )}
-          {githubUrl && (
+          {githubUrl && !privateRepo && (
             <a
               href={githubUrl}
               target="_blank"
@@ -67,6 +69,11 @@ const ProjectCard: React.FC<ProjectProps> = ({
             >
               <GithubIcon size={16} /> Code
             </a>
+          )}
+          {githubUrl && privateRepo && (
+            <span className="flex items-center gap-2 px-4 py-2 bg-secondary opacity-50 rounded-md cursor-not-allowed select-none">
+              <LockIcon size={16} /> Private
+            </span>
           )}
           {hideLive && !githubUrl && (
             <span className="inline-block px-4 py-2 rounded-md opacity-0 select-none">spacer</span>

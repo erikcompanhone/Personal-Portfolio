@@ -2,7 +2,27 @@ import React from 'react';
 import TimelineCard from '../components/TimelineCard';
 
 const Experience: React.FC = () => {
-  const experiences = [
+  const experiences: Array<{
+    title: string;
+    subtitle?: string;
+    organization: string;
+    period: string;
+    logo?: string;
+    logoFallback?: string;
+    description: string[];
+  }> = [
+    {
+      title: 'Agentic Software Engineer',
+      organization: 'Collection Ventures – Remote',
+      period: '05/2026 – Present',
+      logo: undefined,
+      logoFallback: 'CV',
+      description: [
+        'Founding member contributing to early-stage startup development.',
+        'Building humanitarian agentic AI software on Google Cloud infrastructure.',
+        'Tech: Terraform, Google Cloud, Agentic AI Development.'
+      ]
+    },
     {
       title: 'Full-Stack Developer',
       organization: 'MyWayv – Boca Raton, FL',
@@ -39,10 +59,12 @@ const Experience: React.FC = () => {
             <TimelineCard
               key={index}
               title={experience.title}
+              subtitle={experience.subtitle}
               organization={experience.organization}
               period={experience.period}
               description={experience.description}
               logo={experience.logo}
+              logoFallback={experience.logoFallback}
             />
         ))}
       </div>
