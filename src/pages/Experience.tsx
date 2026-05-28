@@ -12,18 +12,6 @@ const Experience: React.FC = () => {
     description: string[];
   }> = [
     {
-      title: 'Agentic Software Engineer',
-      organization: 'Collection Ventures – Remote',
-      period: '05/2026 – Present',
-      logo: undefined,
-      logoFallback: 'CV',
-      description: [
-        'Founding member contributing to early-stage startup development.',
-        'Building humanitarian agentic AI software on Google Cloud infrastructure.',
-        'Tech: Terraform, Google Cloud, Agentic AI Development.'
-      ]
-    },
-    {
       title: 'Full-Stack Developer',
       organization: 'MyWayv – Boca Raton, FL',
       period: '05/2025 – 04/2026',
