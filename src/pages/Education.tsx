@@ -28,6 +28,34 @@ const Education: React.FC = () => {
 
   const certifications = [
     {
+      title: 'Engineer Data for Predictive Modeling with BigQuery ML',
+      organization: 'Google Cloud Skill Badge',
+      period: 'Earned July 2026',
+      description: [
+        'Build data transformation pipelines to BigQuery using Dataprep by Trifacta.',
+        'Build extract, transform, and load (ETL) workflows with Cloud Storage, Dataflow, and BigQuery.',
+        'Build machine learning models using BigQuery ML.',
+        'Copy data across multiple locations using Cloud Composer.'
+      ],
+      context: 'Intermediate skill badge covering data engineering on Google Cloud, earned by completing a hands-on challenge lab that validates building ETL pipelines into BigQuery and training predictive machine learning models with BigQuery ML.',
+      image: '/assets/education/certs_and_badges/engineer_data_for_predictive_modeling_with_bigquery_ml.png',
+      verifyUrl: 'https://www.credly.com/badges/5745f893-5078-4bfb-bc2d-af95a5a7c866'
+    },
+    {
+      title: 'Perform Predictive Data Analysis in BigQuery',
+      organization: 'Google Cloud Skill Badge',
+      period: 'Earned July 2026',
+      description: [
+        'Create a soccer dataset in BigQuery by importing CSV and JSON files.',
+        'Apply sophisticated SQL analytical concepts to large datasets in BigQuery.',
+        'Train an expected goals model on soccer event data using BigQuery ML.',
+        'Evaluate the impressiveness of World Cup goals using model predictions.'
+      ],
+      context: 'Intermediate skill badge covering the fundamentals of sports data science in BigQuery, earned through hands-on labs that validate importing and analyzing soccer match data with advanced SQL and training predictive models with BigQuery ML.',
+      image: '/assets/education/certs_and_badges/perform_predictive_data_analysis_in_bigquery.png',
+      verifyUrl: 'https://www.credly.com/badges/95043629-af7e-4e0b-b83b-7c374428c41e'
+    },
+    {
       title: 'Deploy Multi-Agent Architectures',
       organization: 'Google Cloud Skill Badge',
       period: 'Earned May 2026',
