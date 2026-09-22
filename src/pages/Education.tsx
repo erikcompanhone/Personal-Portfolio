@@ -28,6 +28,20 @@ const Education: React.FC = () => {
 
   const certifications = [
     {
+      title: 'Claude Certified Developer - Foundations',
+      organization: 'Anthropic',
+      period: 'Earned September 2026',
+      description: [
+        'Build, integrate, and ship production applications and agents on Claude using the Claude API, Claude Code, custom tools, and MCP servers.',
+        'Apply prompt engineering, context engineering, and model optimization to get reliable results from Claude.',
+        'Develop MCP servers and agent workflows, then evaluate and debug them with a focus on application security.',
+        'Earned by passing the proctored Claude Certified Developer - Foundations exam.'
+      ],
+      context: 'Foundational developer credential issued by Anthropic that validates skills in Claude API integration, agent development, MCP server development, prompt and context engineering, evals and debugging, model optimization, and application security.',
+      image: '/assets/education/certs_and_badges/claude_certified_developer_foundations.png',
+      verifyUrl: 'https://www.credly.com/badges/44687323-b575-44e2-b244-f29882f8f51e'
+    },
+    {
       title: 'The Software Designer Mindset',
       organization: 'ArjanCodes',
       period: 'Completed September 2026',
@@ -39,8 +53,7 @@ const Education: React.FC = () => {
       ],
       context: 'Self-paced course by Arjan Egges covering software design fundamentals, domain modeling, and pragmatic code review practices, with all examples in Python and principles that transfer to any language.',
       image: '/assets/education/certs_and_badges/arjan.png',
-      verifyUrl: 'https://app.kajabi.com/certificates/a61372d4',
-      verifyLabel: 'View Certificate'
+      verifyUrl: 'https://app.kajabi.com/certificates/a61372d4'
     },
     {
       title: 'Engineer Data for Predictive Modeling with BigQuery ML',
@@ -121,7 +134,6 @@ const Education: React.FC = () => {
               context={item.context}
               image={item.image}
               verifyUrl={item.verifyUrl}
-              verifyLabel={item.verifyLabel}
             />
           ))}
         </div>
